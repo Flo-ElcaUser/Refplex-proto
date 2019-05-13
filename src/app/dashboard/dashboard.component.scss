@@ -1,0 +1,91 @@
+.teamMate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.teamMate:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.teamMate h2 {
+  font-size: 1em;
+  font-weight: normal;
+  margin: 0;
+}
+
+.teamMate p {
+  margin: 0;
+  font-size: .8em;
+}
+
+.teamMate img {
+  display: inline-block;
+  vertical-align: top;
+  width: 75px;
+  height: 75px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+
+.mate-info {
+  display: inline-block;
+  vertical-align: top;
+}
+
+//=============== custom =============//
+
+.sideMenu {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 10%;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+
+}
+
+.dashboard {
+  display: flex;
+  background-color: #fdfdfd;
+
+  &--details {
+    display: flex;
+  }
+
+  &--content {
+    width: 100%;
+  }
+
+  &--buttons {
+    button {
+      margin: 0 10px;
+    }
+  }
+
+  &--topContent {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+  }
+
+  .box {
+    width: 50%;
+    margin: 20px;
+
+    &--large {
+      margin: 20px;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+}

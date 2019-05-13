@@ -1,0 +1,73 @@
+<div class="dashboard">
+  <div class="sideMenu">
+    <h1>Replex</h1>
+    <div class="teamMate">
+      <img [src]="'https://via.placeholder.com/150'" alt="Nancy Leverling">
+      <span class="mate-info">
+        <h2>Nancy Leverling</h2>
+        <p>Sales Associate</p>
+      </span>
+    </div>
+  </div>
+
+  <div class="dashboard--content">
+
+    <div class="dashboard--topContent">
+      <div class="dashboard--buttons">
+        <button kendoButton (click)="onButtonClick()" [icon]="'search'">Analyse</button>
+        <button kendoButton (click)="onButtonClick()" [icon]="'list-bulleted'">Données</button>
+        <button kendoButton (click)="onButtonUploadClick($event)" [icon]="'login'">Imports</button>
+        <kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl" class="hidden"></kendo-upload>
+
+
+      </div>
+      <div class="dashboard--buttons">
+        <button kendoButton (click)="onButtonClick()" [icon]="'sort-desc'">Filters</button>
+        <button kendoButton (click)="pdf.saveAs('invoice.pdf')" [icon]="'download'">Export as PDF</button>
+      </div>
+    </div>
+    <div class=" dashboard--details">
+      <div class="box">
+        <kendo-chart>
+          <kendo-chart-title align="left" text="BAR CHART 1"></kendo-chart-title>
+          <kendo-chart-legend position="top"></kendo-chart-legend>
+          <kendo-chart-series>
+            <kendo-chart-series-item type="column" *ngFor="let item of series" [gap]="2" [data]="item.data"
+              [name]="item.name">
+            </kendo-chart-series-item>
+          </kendo-chart-series>
+        </kendo-chart>
+      </div>
+      <div class="box">
+        <kendo-pdf-export #pdf paperSize="A3" margin="2cm">
+          <kendo-chart>
+            <kendo-chart-title align="left" text="PIE CHART 1"></kendo-chart-title>
+            <kendo-chart-legend position="top" orientation="horizontal"></kendo-chart-legend>
+            <kendo-chart-series>
+              <kendo-chart-series-item type="donut" [data]="data" categoryField="name" field="value">
+                <kendo-chart-series-item-labels [content]="labelContent" color="#fff" background="none">
+                </kendo-chart-series-item-labels>
+              </kendo-chart-series-item>
+            </kendo-chart-series>
+            <kendo-chart-legend [visible]="false"></kendo-chart-legend>
+          </kendo-chart>
+        </kendo-pdf-export>
+      </div>
+    </div>
+    <div class="box--large">
+      <kendo-chart>
+        <kendo-chart-title align="left" text="LINE CHART"></kendo-chart-title>
+        <kendo-chart-legend position="top" orientation="horizontal"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']"
+            [title]="{ text: 'Months' }">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="line" *ngFor="let item of lines" [data]="item.data" [name]="item.name">
+          </kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+  </div>
+</div>
