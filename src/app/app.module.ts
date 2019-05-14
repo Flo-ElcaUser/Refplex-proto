@@ -13,6 +13,9 @@ import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { UploadModule } from '@progress/kendo-angular-upload';
 import { HttpClientModule } from '@angular/common/http';
+import { DonneeComponent } from './donnee/donnee.component';
+import { ImportsComponent } from './imports/imports.component';
+
 
 
 
@@ -26,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     DashboardComponent,
-    HomepageComponent
+    HomepageComponent,
+    DonneeComponent,
+    ImportsComponent
   ],
   imports: [
     BrowserModule,

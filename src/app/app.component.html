@@ -1,6 +1,31 @@
-<ul>
-  <li><a class="active" href="/">Home</a></li>
-  <li><a href="/dashboard">Dashboard</a></li>
-</ul>
+<div class="dashboard">
+  <div class="sideMenu">
+    <h1>Replex</h1>
+    <div class="teamMate">
+      <img [src]="'https://via.placeholder.com/150'" alt="Nancy Leverling">
+      <span class="mate-info">
+        <h2>Nancy Leverling</h2>
+        <p>Sales Associate</p>
+      </span>
+    </div>
+  </div>
+  <div class="dashboard--content">
+    <div class="dashboard--topContent">
+      <div class="dashboard--buttons">
+        <button kendoButton (click)="goToPage('/analyse')" [icon]="'search'">Analyse</button>
+        <button kendoButton (click)="goToPage('/donnee')" [icon]="'list-bulleted'">Données</button>
+        <button kendoButton (click)="onButtonUploadClick($event)" [icon]="'login'">Imports</button>
+        <kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl" class="hidden"></kendo-upload>
+      </div>
+      <div class="dashboard--buttons">
+        <button kendoButton (click)="onButtonClick()" [icon]="'sort-desc'">Filters</button>
+        <button kendoButton (click)="pdf.saveAs('invoice.pdf')" [icon]="'download'">Export as PDF</button>
+      </div>
+    </div>
+    <div class=" dashboard--details">
 
-<router-outlet></router-outlet>
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+</div>
