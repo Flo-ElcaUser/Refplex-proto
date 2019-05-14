@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadEvent } from '@progress/kendo-angular-upload';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -54,4 +55,7 @@ export class DashboardComponent implements OnInit {
 
     document.getElementById("upload-id").click();
   }
+
+
+
 }
