@@ -15,6 +15,15 @@ import { UploadModule } from '@progress/kendo-angular-upload';
 import { HttpClientModule } from '@angular/common/http';
 import { DonneeComponent } from './donnee/donnee.component';
 import { ImportsComponent } from './imports/imports.component';
+import { SaisieComponent } from './saisie/saisie.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common'
+import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+
+
+
 
 
 
@@ -31,7 +40,8 @@ import { ImportsComponent } from './imports/imports.component';
     DashboardComponent,
     HomepageComponent,
     DonneeComponent,
-    ImportsComponent
+    ImportsComponent,
+    SaisieComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +52,13 @@ import { ImportsComponent } from './imports/imports.component';
     PDFExportModule,
     ButtonsModule,
     UploadModule,
-    HttpClientModule
+    HttpClientModule,
+    GridModule,
+    FormsModule,
+    DialogsModule,
+    DateInputsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
