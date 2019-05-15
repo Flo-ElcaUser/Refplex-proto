@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { InMemoryWebApiModule, HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,7 +29,7 @@ import { WebApiService } from './Services/WebApiService';
     HomepageComponent,
     DonneeComponent,
     ImportsComponent,
-    SaisieComponent
+    SaisieComponent,
     AnalyseComponent
   ],
   imports: [
