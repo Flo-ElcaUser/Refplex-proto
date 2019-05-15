@@ -1,21 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadEvent } from '@progress/kendo-angular-upload';
 
-
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-analyse',
+  templateUrl: './analyse.component.html',
+  styleUrls: ['./analyse.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class AnalyseComponent implements OnInit {
 
-  constructor() {
-
-  }
+  constructor() { }
 
   ngOnInit() {
-
   }
+
+
 
   public series: any[] = [{
     name: "Legend",
@@ -55,7 +53,5 @@ export class DashboardComponent implements OnInit {
 
     document.getElementById("upload-id").click();
   }
-
-
 
 }

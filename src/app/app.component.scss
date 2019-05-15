@@ -69,10 +69,44 @@ li a:hover {
   display: flex;
   flex-direction: column;
   align-content: center;
-  width: 10%;
+  width: 15%;
   background-color: #333;
   color: #fff;
   text-align: center;
+  padding: 10px;
+
+  &--title {
+    font-size: 3em;
+    font-family: sans-serif;
+    margin: 40px 20px;
+  }
+
+  &--list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: rgba(255, 255, 255, 0.2) solid 1px;
+    text-align: left;
+    padding: 10px 20px;
+    color: #fff;
+    background: transparent;
+
+  }
+
+  &--content {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+  }
+
+  &--year {
+    font-size: 20px;
+  }
+
+  &--status {
+    font-size: 12px;
+    opacity: 0.5;
+  }
 }
 
 .dashboard {
@@ -93,6 +127,7 @@ li a:hover {
   &--buttons {
     button {
       margin: 0 10px;
+
     }
   }
 

@@ -1,0 +1,34 @@
+{
+  "posts": [{
+      "id": 1,
+      "year": "Avril 2019",
+      "status": "Ouvert",
+      "icon": "eye"
+    },
+    {
+      "id": 2,
+      "year": "Mars 2019",
+      "status": "Correction requise",
+      "icon": "exception"
+    },
+    {
+      "id": 3,
+      "year": "Février 2019",
+      "status": "Validé par la CR",
+      "icon": "checkmark"
+    }, {
+      "id": 4,
+      "year": "Janvier 2019",
+      "status": "Validé par l'OV",
+      "icon": "plus"
+    }
+  ],
+  "comments": [{
+    "id": 1,
+    "body": "some comment",
+    "postId": 1
+  }],
+  "profile": {
+    "name": "typicode"
+  }
+}

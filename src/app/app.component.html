@@ -1,6 +1,6 @@
 <div class="dashboard">
   <div class="sideMenu">
-    <h1>Replex</h1>
+    <div class="sideMenu--title">REPLEX</div>
     <div class="teamMate">
       <img [src]="'https://via.placeholder.com/150'" alt="Nancy Leverling">
       <span class="mate-info">
@@ -8,17 +8,27 @@
         <p>Sales Associate</p>
       </span>
     </div>
+    <kendo-buttongroup [selection]="'single'" class="sideMenu--content">
+      <button kendoButton [toggleable]="true" (click)="goToPage('/analyse')" *ngFor="let item of data"
+        class="sideMenu--list">
+        <div class="">
+          <div class="sideMenu--year">{{ item.year }}</div>
+          <div class="sideMenu--status">{{ item.status }}</div>
+        </div>
+        <span [ngClass]="getIcons(item.icon)"></span>
+      </button>
+    </kendo-buttongroup>
   </div>
   <div class="dashboard--content">
     <div class="dashboard--topContent">
-      <div class="dashboard--buttons">
-        <button kendoButton (click)="goToPage('/analyse')" [icon]="'search'">Analyse</button>
-        <button kendoButton (click)="goToPage('/donnee')" [icon]="'list-bulleted'">Données</button>
-        <button kendoButton (click)="onButtonUploadClick($event)" [icon]="'login'">Imports</button>
+      <kendo-buttongroup [selection]="'single'" class="dashboard--buttons">
+        <button kendoButton [toggleable]="true" (click)="goToPage('/analyse')" [icon]="'search'">Analyse</button>
+        <button kendoButton [toggleable]="true" (click)="goToPage('/donnee')" [icon]="'list-bulleted'">Données</button>
+        <button kendoButton [toggleable]="true" (click)="generateView()" [icon]="'login'">Imports</button>
         <kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl" class="hidden"></kendo-upload>
-      </div>
+      </kendo-buttongroup>
       <div class="dashboard--buttons">
-        <button kendoButton (click)="onButtonClick()" [icon]="'sort-desc'">Filters</button>
+        <button kendoButton (click)="onButtonUploadClick($event)" [icon]="'sort-desc'">Filters</button>
         <button kendoButton (click)="pdf.saveAs('invoice.pdf')" [icon]="'download'">Export as PDF</button>
       </div>
     </div>
