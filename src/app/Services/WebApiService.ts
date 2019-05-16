@@ -6,7 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError } from 'rxjs/operators';
-import { Metadata } from '../model/metadata';
+import { Metadata, Analyse } from '../model/metadata';
 
 
 @Injectable({
@@ -21,7 +21,16 @@ export class WebApiService {
     /** GET heroes from the server */
     public getMetadata() {
         try {
-            return this.http.get<Metadata>(this.ApiUrl + 'posts');
+            return this.http.get<Metadata[]>(this.ApiUrl + 'metadata');
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    public getAnalyseData(param: string) {
+        try {
+            return this.http.get<Analyse>(this.ApiUrl + 'metadata/' + param);
 
         } catch (error) {
             console.log(error);

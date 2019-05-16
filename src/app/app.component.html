@@ -9,7 +9,7 @@
       </span>
     </div>
     <kendo-buttongroup [selection]="'single'" class="sideMenu--content">
-      <button kendoButton [toggleable]="true" (click)="goToPage('/analyse')" *ngFor="let item of data"
+      <button *ngFor="let item of data" kendoButton [toggleable]="true" (click)="GetData(item.id)"
         class="sideMenu--list">
         <div class="">
           <div class="sideMenu--year">{{ item.year }}</div>

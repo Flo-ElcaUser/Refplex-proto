@@ -11,7 +11,7 @@ import { Metadata } from './model/metadata';
 export class AppComponent implements OnInit {
   title = 'replex-front';
 
-  public data: Metadata;
+  public data: Array<Metadata>;
 
   constructor(private router: Router, private webApiService: WebApiService) {
 
@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
         this.data = data;
       });
   }
+
 
   public getIcons(data: string): string {
     return data = 'k-icon k-i-' + data;
