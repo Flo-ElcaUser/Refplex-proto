@@ -22,6 +22,10 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { AnalyseComponent } from './analyse/analyse.component';
 import { WebApiService } from './Services/WebApiService';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+
+
 
 @NgModule({
   declarations: [
@@ -45,7 +49,9 @@ import { WebApiService } from './Services/WebApiService';
     GridModule,
     FormsModule,
     DialogsModule,
-    DateInputsModule
+    DateInputsModule,
+    DropDownsModule,
+    InputsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
