@@ -24,7 +24,7 @@
       <kendo-buttongroup [selection]="'single'" class="dashboard--buttons">
         <button kendoButton [toggleable]="true" (click)="goToPage('/analyse')" [icon]="'search'">Analyse</button>
         <button kendoButton [toggleable]="true" (click)="goToPage('/donnee')" [icon]="'list-bulleted'">Données</button>
-        <button kendoButton [toggleable]="true" (click)="generateView()" [icon]="'login'">Imports</button>
+        <button kendoButton [toggleable]="true" (click)="goToPage('/imports')" [icon]="'login'">Imports</button>
         <kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl" class="hidden"></kendo-upload>
       </kendo-buttongroup>
       <div class="dashboard--buttons">
