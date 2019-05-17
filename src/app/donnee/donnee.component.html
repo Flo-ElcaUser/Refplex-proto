@@ -13,12 +13,13 @@
 
 
 <kendo-grid
-  [data]="Data"
+  [kendoGridBinding]="Data"
   [height]="533"
-  [pageSize]="" [skip]="" [sort]=""
+  [pageSize]="8" [skip]="" [sort]="asc"
   [pageable]="true" [sortable]="true"
   (dataStateChange)="onStateChange($event)"
   [navigable]="true"
+  
 >
 
   <kendo-grid-column field="dateVente" title="Date vente">
@@ -112,7 +113,6 @@
 <kendo-dialog title="Add New Records" *ngIf="dialogOpened" (close)="close('dialog')" [minWidth]="250" [width]="450">
 
 <div class="col-xs-12 col-md-6">
-  <!-- <label [for]="vente">Date vente: </label> -->
   <p>Date vente:</p>
   <kendo-datepicker id="vente"
       [(value)]="newRecVal"
@@ -121,7 +121,7 @@
 </div>
 
 <div class="col-xs-12 col-md-6">
-  <label [for]="valide">Date validé: </label>
+  <p>Date validé:</p>
   <kendo-datepicker id="valide"
       [(value)]="newRecVal"
       [format]="'dd/MM/yyyy'"
@@ -129,8 +129,64 @@
 </div>
 
 <div class="col-xs-12 col-md-6">
-  <label [for]="'canal'">Canal: </label>
+  <p>Canal:</p>
   <input id="canal" />
 </div>
+
+<div class="col-xs-12 col-md-6">
+  <p>Type:</p>
+  <kendo-combobox [data]="[]">
+  </kendo-combobox>
+</div>
+
+<div class="col-xs-12 col-md-6">
+  <p>Categorie:</p>
+  <kendo-combobox [data]="[]">
+  </kendo-combobox>
+</div>
+
+
+<div class="col-xs-12 col-md-6">
+  <p>Cl.:</p>
+  <kendo-numerictextbox
+  [value]="value" [min]="0" [max]="100">
+</kendo-numerictextbox>
+</div>
+
+<div class="col-xs-12 col-md-6">
+  <p>Produit:</p>
+  <input id="canal" />
+</div>
+
+<div class="col-xs-12 col-md-6">
+  <p>Nb:</p>
+  <kendo-numerictextbox
+  [value]="value" [min]="0" [max]="100">
+</kendo-numerictextbox>
+</div>
+
+<div class="col-xs-12 col-md-6">
+  <p>Prix:</p>
+  <kendo-numerictextbox
+  [value]="value" [min]="0" [max]="100"> 
+</kendo-numerictextbox>
+</div>
+
+<div class="col-xs-12 col-md-6">
+  <p>Date D'ajout:</p>
+  <kendo-datepicker id="ajout"
+      [(value)]="newRecVal"
+      [format]="'dd/MM/yyyy'"
+  ></kendo-datepicker>
+</div>
+
+<div class="col-xs-12 col-md-6">
+  <p>Date modifié:</p>
+  <kendo-datepicker id="modif"
+      [(value)]="newRecVal"
+      [format]="'dd/MM/yyyy'"
+  ></kendo-datepicker>
+</div>
+
 
 </kendo-dialog>
