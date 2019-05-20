@@ -19,9 +19,18 @@ export class WebApiService {
     }
 
     /** GET heroes from the server */
-    public getMetadata() {
+    public getPresentData() {
         try {
-            return this.http.get<Metadata[]>(this.ApiUrl + 'metadata');
+            return this.http.get<Metadata[]>(this.ApiUrl + 'presentdata');
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    public getPastData() {
+        try {
+            return this.http.get<Metadata[]>(this.ApiUrl + 'pastdata');
 
         } catch (error) {
             console.log(error);

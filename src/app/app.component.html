@@ -21,7 +21,17 @@
           </div>
           <span [ngClass]="getIcons(item.icon)"></span>
         </button>
+        <button *ngFor="let item of dataLastYear" kendoButton [toggleable]="true" (click)="GetData(item.id)"
+          class="sideMenu--list sideMenu--bottom">
+          <div class="">
+            <div class="sideMenu--year">{{ item.year }}</div>
+            <div class="sideMenu--status">{{ item.status }}</div>
+          </div>
+          <span [ngClass]="getIcons(item.icon)"></span>
+        </button>
+
       </kendo-buttongroup>
+
     </div>
   </ng-sidebar>
 
@@ -29,6 +39,7 @@
 
     <div class="dashboard--topContent">
       <kendo-buttongroup [selection]="'single'" class="dashboard--buttons">
+        <button kendoButton (click)="_toggleSidebar()" [icon]="iconCollapse"></button>
         <button kendoButton [toggleable]="true" (click)="goToPage('/analyse')" [icon]="'search'">Analyse</button>
         <button kendoButton [toggleable]="true" (click)="goToPage('/donnee')" [icon]="'list-bulleted'">Données</button>
         <button kendoButton [toggleable]="true" (click)="generateView()" [icon]="'login'">Imports</button>
@@ -42,7 +53,6 @@
     <div class="dashboard--details">
       <router-outlet></router-outlet>
     </div>
-    <button kendoButton (click)="_toggleSidebar()">Change</button>
 
   </div>
 </ng-sidebar-container>

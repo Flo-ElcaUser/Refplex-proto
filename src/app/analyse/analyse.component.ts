@@ -11,8 +11,6 @@ import { ApiService } from '../Services/api.service';
 })
 export class AnalyseComponent implements OnInit {
 
-  test: string;
-
   public seriesType: Array<string> = [];
 
   constructor(private webApiService: WebApiService, private apiService: ApiService) {
@@ -28,33 +26,13 @@ export class AnalyseComponent implements OnInit {
 
 
   ngOnInit() {
-    this.apiService.cast.subscribe(test => this.test = test);
     this.apiService.casting.subscribe(seriesType => this.GenerateGraph(seriesType));
-    console.log("testing", this.seriesType);
   }
 
   public GenerateGraph(series: string) {
     this.seriesType = [];
     this.seriesType.push(series);
   }
-
-  // public GetData() {
-
-  //   // this.webApiService.getAnalyseData(id)
-  //   //   .subscribe(data => {
-  //   //     this.seriesType.push(data);
-  //   //     console.log(this.seriesType);
-  //   //   });
-
-  //   this.webApiService.getMetadata()
-  //     .subscribe(data => {
-  //       data.forEach(element => {
-  //         this.seriesType.push(element.analyse);
-  //       });
-  //       // console.log(this.series);
-  //       console.log(this.seriesType);
-  //     });
-  // }
 
 
 

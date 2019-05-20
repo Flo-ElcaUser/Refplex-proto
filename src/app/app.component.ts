@@ -13,7 +13,9 @@ export class AppComponent implements OnInit {
   title = 'replex-front';
 
   public data: Array<Metadata>;
+  public dataLastYear: Array<Metadata>;
   private _opened: boolean = true;
+  public iconCollapse = "minus";
 
   constructor(private router: Router, private webApiService: WebApiService, private apiService: ApiService) {
 
@@ -25,9 +27,13 @@ export class AppComponent implements OnInit {
   }
 
   public GetMetadata() {
-    this.webApiService.getMetadata()
+    this.webApiService.getPresentData()
       .subscribe(data => {
         this.data = data;
+      });
+    this.webApiService.getPastData()
+      .subscribe(data => {
+        this.dataLastYear = data;
       });
   }
 
@@ -40,6 +46,7 @@ export class AppComponent implements OnInit {
     this.router.navigate([`${pageName}`]);
   }
 
+  //to be changed to meaningful name
   public change(param: any) {
     this.apiService.EditSeries(param);
   }
@@ -52,9 +59,8 @@ export class AppComponent implements OnInit {
 
   }
 
-
-
   private _toggleSidebar() {
+    this.iconCollapse = this.iconCollapse === 'minus' ? this.iconCollapse = 'plus' : this.iconCollapse = 'minus';
     this._opened = !this._opened;
   }
 }
