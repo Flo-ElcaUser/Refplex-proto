@@ -22,6 +22,7 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { AnalyseComponent } from './analyse/analyse.component';
 import { WebApiService } from './Services/WebApiService';
+import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { WebApiService } from './Services/WebApiService';
     GridModule,
     FormsModule,
     DialogsModule,
-    DateInputsModule
+    DateInputsModule,
+    SidebarModule.forRoot()
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

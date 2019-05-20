@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { WebApiService } from './Services/WebApiService';
 import { Metadata } from './model/metadata';
+import { ApiService } from './Services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,9 @@ export class AppComponent implements OnInit {
   title = 'replex-front';
 
   public data: Array<Metadata>;
+  private _opened: boolean = true;
 
-  constructor(private router: Router, private webApiService: WebApiService) {
+  constructor(private router: Router, private webApiService: WebApiService, private apiService: ApiService) {
 
   }
 
@@ -36,5 +38,23 @@ export class AppComponent implements OnInit {
 
   public goToPage(pageName: string) {
     this.router.navigate([`${pageName}`]);
+  }
+
+  public change(param: any) {
+    this.apiService.EditSeries(param);
+  }
+
+  public GetData(id: string) {
+    this.webApiService.getAnalyseData(id)
+      .subscribe(data => {
+        this.change(data.analyse);
+      });
+
+  }
+
+
+
+  private _toggleSidebar() {
+    this._opened = !this._opened;
   }
 }
