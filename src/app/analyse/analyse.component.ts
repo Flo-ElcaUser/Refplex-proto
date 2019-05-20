@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadEvent } from '@progress/kendo-angular-upload';
+import { WebApiService } from '../Services/WebApiService';
+import { Analyse } from '../model/metadata';
+import { ApiService } from '../Services/api.service';
 
 @Component({
   selector: 'app-analyse',
@@ -8,20 +11,53 @@ import { UploadEvent } from '@progress/kendo-angular-upload';
 })
 export class AnalyseComponent implements OnInit {
 
-  constructor() { }
+  test: string;
 
-  ngOnInit() {
+  public seriesType: Array<string> = [];
+
+  constructor(private webApiService: WebApiService, private apiService: ApiService) {
+
   }
 
 
+  public series: any[] = [
+    { name: "Legend", data: 0.2 }, {
+      name: "Legend 1",
+      data: 0.5
+    }];
 
-  public series: any[] = [{
-    name: "Legend",
-    data: [3.907, 7.943, 7.848, 9.284, 9.263, 9.801, 3.890, 8.238, 9.552, 6.855]
-  }, {
-    name: "Legend 1",
-    data: [4.743, 7.295, 7.175, 6.376, 8.153, 8.535, 5.247, 7.832, 4.3, 4.3]
-  }];
+
+  ngOnInit() {
+    this.apiService.cast.subscribe(test => this.test = test);
+    this.apiService.casting.subscribe(seriesType => this.GenerateGraph(seriesType));
+    console.log("testing", this.seriesType);
+  }
+
+  public GenerateGraph(series: string) {
+    this.seriesType = [];
+    this.seriesType.push(series);
+  }
+
+  // public GetData() {
+
+  //   // this.webApiService.getAnalyseData(id)
+  //   //   .subscribe(data => {
+  //   //     this.seriesType.push(data);
+  //   //     console.log(this.seriesType);
+  //   //   });
+
+  //   this.webApiService.getMetadata()
+  //     .subscribe(data => {
+  //       data.forEach(element => {
+  //         this.seriesType.push(element.analyse);
+  //       });
+  //       // console.log(this.series);
+  //       console.log(this.seriesType);
+  //     });
+  // }
+
+
+
   public categories: number[] = [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011];
 
   public data: any[] = [

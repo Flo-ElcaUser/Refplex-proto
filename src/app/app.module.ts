@@ -24,6 +24,7 @@ import { AnalyseComponent } from './analyse/analyse.component';
 import { WebApiService } from './Services/WebApiService';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { InputsModule } from '@progress/kendo-angular-inputs';
+import { SidebarModule } from 'ng-sidebar';
 
 
 
@@ -51,7 +52,8 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
     DialogsModule,
     DateInputsModule,
     DropDownsModule,
-    InputsModule
+    InputsModule,
+    SidebarModule.forRoot()
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
