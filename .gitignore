@@ -44,3 +44,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+/Backend/.vs/Replex/v15/Server/sqlite3
