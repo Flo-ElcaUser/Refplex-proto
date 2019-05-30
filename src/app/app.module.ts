@@ -11,7 +11,7 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
 import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { UploadModule } from '@progress/kendo-angular-upload';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DonneeComponent } from './donnee/donnee.component';
 import { ImportsComponent } from './imports/imports.component';
 import { SaisieComponent } from './saisie/saisie.component';
@@ -25,8 +25,6 @@ import { WebApiService } from './Services/WebApiService';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { SidebarModule } from 'ng-sidebar';
-
-
 
 @NgModule({
   declarations: [

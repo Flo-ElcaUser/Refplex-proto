@@ -13,7 +13,7 @@ export class AnalyseComponent implements OnInit {
 
   public seriesType: Array<string> = [];
 
-  constructor(private webApiService: WebApiService, private apiService: ApiService) {
+  constructor(private apiService: ApiService) {
 
   }
 

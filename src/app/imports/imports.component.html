@@ -1,3 +1,4 @@
-<p>
-  imports works!
-</p>
+<kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl" [showFileList]="true" [responseType]="blob"
+  [restrictions]="uploadRestrictions" (select)="selectEventHandler($event)">
+  <kendo-upload-messages select="Add images"></kendo-upload-messages>
+</kendo-upload>

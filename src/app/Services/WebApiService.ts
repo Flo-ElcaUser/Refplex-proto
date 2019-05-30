@@ -39,7 +39,7 @@ export class WebApiService {
 
     public getAnalyseData(param: string) {
         try {
-            return this.http.get<Metadata>(this.ApiUrl + 'metadata/' + param);
+            return this.http.get<Metadata>(this.ApiUrl + 'presentdata/' + param);
 
         } catch (error) {
             console.log(error);
