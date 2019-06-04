@@ -22,6 +22,8 @@ import { DonneeComponent } from './donnee/donnee.component';
 import { DatePickerModule } from '@progress/kendo-angular-dateinputs';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { ComboBoxModule } from '@progress/kendo-angular-dropdowns';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemDonneeService } from './shared/fake-db/fake.donne';
 
 @NgModule({
   declarations: [
@@ -47,13 +49,19 @@ import { ComboBoxModule } from '@progress/kendo-angular-dropdowns';
     NgxUiLoaderModule,
     DialogsModule,
     SidebarModule.forRoot(),
+    InMemoryWebApiModule.forRoot(InMemDonneeService, {
+      delay: 0,
+      passThruUnknownUrl: true
+    }),
     RouterModule.forRoot([
       { path: '', component: AnalyseComponent, pathMatch: 'full' },
       { path: 'imports', component: ImportsComponent },
       { path: 'donnee', component: DonneeComponent },
     ])
   ],
-  providers: [],
+  providers: [
+    InMemDonneeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
