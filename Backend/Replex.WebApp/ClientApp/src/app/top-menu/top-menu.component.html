@@ -1,0 +1,12 @@
+<div class="dashboard--topContent">
+  <kendo-buttongroup [selection]="'single'" class="dashboard--buttons">
+    <button kendoButton [toggleable]="true" (click)="goToPage('/')" [icon]="'search'">Analyse</button>
+    <button kendoButton [toggleable]="true" (click)="goToPage('/donnee')" [icon]="'list-bulleted'">Données</button>
+    <button kendoButton [toggleable]="true" (click)="goToPage('/imports')" [icon]="'login'">Imports</button>
+    <kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl" class="hidden"></kendo-upload>
+  </kendo-buttongroup>
+  <div class="dashboard--buttons">
+    <!-- <button kendoButton (click)="onButtonUploadClick($event)" [icon]="'sort-desc'">Filters</button>
+    <button kendoButton (click)="pdf.saveAs('invoice.pdf')" [icon]="'download'">Export as PDF</button> -->
+  </div>
+</div>

@@ -1,6 +1,13 @@
-<body>
-  <app-nav-menu></app-nav-menu>
-  <div class="container">
-    <router-outlet></router-outlet>
+<ng-sidebar-container>
+  <ng-sidebar [(opened)]="_opened" [mode]="'push'">
+    <app-nav-menu></app-nav-menu>
+  </ng-sidebar>
+
+  <div ng-sidebar-content>
+    <app-top-menu></app-top-menu>
+    <div class="body-content ">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</body>
+</ng-sidebar-container>
+<ngx-ui-loader></ngx-ui-loader>
