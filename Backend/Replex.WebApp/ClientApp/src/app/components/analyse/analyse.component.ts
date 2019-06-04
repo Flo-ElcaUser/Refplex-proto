@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadEvent } from '@progress/kendo-angular-upload';
-import { WebApiService } from '../Services/WebApiService';
-import { Analyse } from '../model/metadata';
-import { ApiService } from '../Services/api.service';
+import { WebApiService } from '../../services/WebApiService';
+import { Analyse } from '../../model/metadata';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-analyse',

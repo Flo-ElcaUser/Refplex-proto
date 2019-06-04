@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { WebApiService } from '../Services/WebApiService';
-import { ApiService } from '../Services/api.service';
-import { Metadata } from '../model/metadata';
+import { WebApiService } from '../../Services/WebApiService';
+import { ApiService } from '../../Services/api.service';
+import { Metadata } from '../../model/metadata';
 
 @Component({
   selector: 'app-nav-menu',
