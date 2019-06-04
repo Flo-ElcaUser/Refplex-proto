@@ -1,0 +1,9 @@
+C:\repo\replex_proto\Backend\Replex.Services\bin\Debug\netcoreapp2.2\Replex.Services.deps.json
+C:\repo\replex_proto\Backend\Replex.Services\bin\Debug\netcoreapp2.2\Replex.Services.dll
+C:\repo\replex_proto\Backend\Replex.Services\bin\Debug\netcoreapp2.2\Replex.Services.pdb
+C:\repo\replex_proto\Backend\Replex.Services\obj\Debug\netcoreapp2.2\Replex.Services.csprojAssemblyReference.cache
+C:\repo\replex_proto\Backend\Replex.Services\obj\Debug\netcoreapp2.2\Replex.Services.csproj.CoreCompileInputs.cache
+C:\repo\replex_proto\Backend\Replex.Services\obj\Debug\netcoreapp2.2\Replex.Services.AssemblyInfoInputs.cache
+C:\repo\replex_proto\Backend\Replex.Services\obj\Debug\netcoreapp2.2\Replex.Services.AssemblyInfo.cs
+C:\repo\replex_proto\Backend\Replex.Services\obj\Debug\netcoreapp2.2\Replex.Services.dll
+C:\repo\replex_proto\Backend\Replex.Services\obj\Debug\netcoreapp2.2\Replex.Services.pdb

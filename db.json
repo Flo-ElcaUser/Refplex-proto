@@ -1,29 +1,49 @@
 {
-  "posts": [{
+  "metadata": [{
       "id": 1,
       "year": "Avril 2019",
       "status": "Ouvert",
-      "icon": "eye"
+      "icon": "eye",
+      "analyse": {
+        "name": "Avril",
+        "data": [3.907, 7.943, 7.848, 9.284, 9.263, 9.801, 3.890, 8.238, 9.552, 6.855],
+        "value": 0.4
+      }
     },
     {
       "id": 2,
       "year": "Mars 2019",
       "status": "Correction requise",
-      "icon": "exception"
+      "icon": "exception",
+      "analyse": {
+        "name": "Mars",
+        "data": [2.907, 6.943, 5.848, 7.284, 8.263, 2.801, 9.890, 1.238, 2.552, 4.855],
+        "value": 0.3
+      }
     },
     {
       "id": 3,
       "year": "Février 2019",
       "status": "Validé par la CR",
-      "icon": "checkmark"
+      "icon": "checkmark",
+      "analyse": {
+        "name": "Février",
+        "data": [8.907, 6.943, 8.848, 1.284, 4.263, 1.801, 6.890, 8.238, 9.552, 6.855],
+        "value": 0.1
+      }
     }, {
       "id": 4,
       "year": "Janvier 2019",
       "status": "Validé par l'OV",
-      "icon": "plus"
+      "icon": "plus",
+      "analyse": {
+        "name": "Janvier",
+        "data": [5.907, 7.943, 8.848, 6.284, 9.263, 6.801, 3.890, 8.238, 9.552, 6.855],
+        "value": 0.2
+      }
     }
   ],
-  "tests": [{
+  "analyse": [{
     "id": 1,
     "body": "some comment",
     "postId": 1

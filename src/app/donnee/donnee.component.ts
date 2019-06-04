@@ -17,11 +17,11 @@ export class DonneeComponent implements OnInit {
   public Data: any;
   public dialogOpened = false;
 
-  constructor(private intl: IntlService) {}
+  constructor(private intl: IntlService) { }
 
   ngOnInit() {
     this.Data = this.extractData(this.gridData);
-    console.log(this.Data);
+    // console.log(this.Data);
   }
 
   public formatValue(value: Date): string {
@@ -36,7 +36,7 @@ export class DonneeComponent implements OnInit {
         d.dateAjout = this.formatValue(d.dateAjout);
         d.dateModif = this.formatValue(d.dateModif);
         d.prix = d.prix.currency + ' ' + d.prix.cash;
-        
+
         // d.ChangedDate = new Date(d.ChangedDate);
         // d.CompletionDate = new Date(d.CompletionDate);
         // d.DueDate = new Date(d.DueDate);
@@ -56,6 +56,6 @@ export class DonneeComponent implements OnInit {
     this[component + 'Opened'] = true;
   }
   public newRecVal: Date = new Date();
-  
+
 
 }
