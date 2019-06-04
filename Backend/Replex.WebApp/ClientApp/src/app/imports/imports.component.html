@@ -1,0 +1,26 @@
+<div class="content-top__button">
+  <button kendoButton (click)="onButtonUploadClick($event)" [icon]="'sort-desc'">Filters</button>
+  <button kendoButton (click)="open()" [icon]="'plus'">Importer CSV</button>
+</div>
+<kendo-grid [data]="gridData" [height]="500" [sortable]="{mode: 'multiple'}" [sort]="sort"
+  (sortChange)="sortChange($event)">
+  <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="DateImport" title="Date Import"
+    width="50">
+  </kendo-grid-column>
+  <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="Transaction" title="Transaction"
+    width="50">
+  </kendo-grid-column>
+  <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="Erreurs" title="Erreurs" width="50">
+  </kendo-grid-column>
+  <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="Type" title="Type fichier" width="50">
+  </kendo-grid-column>
+  <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="Source" title="Source" width="50">
+  </kendo-grid-column>
+</kendo-grid>
+
+
+<kendo-window [top]="100" [left]="600" [width]="500" [height]="200" title="Imports CSV" *ngIf="opened"
+  (dragStart)="onDragStart()" (dragEnd)="onDragEnd()" (resizeStart)="onResizeStart()" (resizeEnd)="onResizeEnd()"
+  (stateChange)="onStateChange($event)" (close)="onClose()">
+  <kendo-upload [saveUrl]="saveUrl" (success)="successEventHandler($event)"></kendo-upload>
+</kendo-window>

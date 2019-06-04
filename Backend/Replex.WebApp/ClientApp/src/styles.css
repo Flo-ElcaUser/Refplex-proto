@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '../src/assets/all.css';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+app-analyse {
+  width: 100%;
+}
+
+.k-grid {
+  border: none !important;
+}
+
+.k-grid-header {
+  background-color: #fff !important;
+}
+
+.k-grid-header-wrap {
+  border: none;
+}
+
+.k-grid td,
+.k-grid th {
+  border: none !important;
+  border-bottom: solid 1px rgba(61, 61, 61, 0.096) !important;
+  height: 70px;
+}
+
+
+button:focus {
+  outline: 0;
+}
+
+.bg--white {
+  background-color: #fff !important;
+}
