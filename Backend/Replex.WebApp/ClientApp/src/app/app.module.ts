@@ -6,22 +6,22 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
 import { DonneeComponent } from './donnee/donnee.component';
+import { AnalyseComponent } from './analyse/analyse.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
-    DonneeComponent
+    DonneeComponent,
+    AnalyseComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: AnalyseComponent, pathMatch: 'full' },
       { path: 'donnee', component: DonneeComponent }
     ])
   ],
