@@ -47,3 +47,7 @@ Thumbs.db
 /Backend/.vs/Replex/v15/Server/sqlite3
 
 Backend/Replex/Replex\.Presentation/ClientApp/node_modules/
+
+Backend/\.vs/Replex/v15/
+
+Backend/Replex\.Persistence/obj/Debug/netcoreapp2\.2/
