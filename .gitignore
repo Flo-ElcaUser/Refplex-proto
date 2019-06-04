@@ -45,3 +45,5 @@ testem.log
 .DS_Store
 Thumbs.db
 /Backend/.vs/Replex/v15/Server/sqlite3
+
+Backend/Replex/Replex\.Presentation/ClientApp/node_modules/
