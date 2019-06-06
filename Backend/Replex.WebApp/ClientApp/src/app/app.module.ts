@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -18,12 +18,12 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { AnalyseComponent } from './analyse/analyse.component';
-import { DonneeComponent } from './donnee/donnee.component';
-import { DatePickerModule } from '@progress/kendo-angular-dateinputs';
+import { DonneesComponent } from './donnees/donnees.component';
+import { DatePickerModule, DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { InputsModule } from '@progress/kendo-angular-inputs';
-import { ComboBoxModule } from '@progress/kendo-angular-dropdowns';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemDonneeService } from './shared/fake-db/fake.donne';
+import { ComboBoxModule, DropDownListModule } from '@progress/kendo-angular-dropdowns';
+import { DonneesService } from './Services/donnees.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,14 +32,17 @@ import { InMemDonneeService } from './shared/fake-db/fake.donne';
     ImportsComponent,
     TopMenuComponent,
     AnalyseComponent,
-    DonneeComponent
+    DonneesComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserAnimationsModule,
+    GridModule,
     HttpClientModule,
     ButtonsModule,
     ChartsModule,
     FormsModule,
+    ReactiveFormsModule,
     GridModule,
     UploadModule,
     PDFExportModule,
@@ -48,19 +51,16 @@ import { InMemDonneeService } from './shared/fake-db/fake.donne';
     InputsModule,
     NgxUiLoaderModule,
     DialogsModule,
+    DropDownListModule,
     SidebarModule.forRoot(),
-    InMemoryWebApiModule.forRoot(InMemDonneeService, {
-      delay: 0,
-      passThruUnknownUrl: true
-    }),
     RouterModule.forRoot([
       { path: '', component: AnalyseComponent, pathMatch: 'full' },
       { path: 'imports', component: ImportsComponent },
-      { path: 'donnee', component: DonneeComponent },
+      { path: 'donnees', component: DonneesComponent }
     ])
   ],
   providers: [
-    InMemDonneeService
+    DonneesService
   ],
   bootstrap: [AppComponent]
 })
