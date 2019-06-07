@@ -19,8 +19,9 @@
 </kendo-grid>
 
 
-<kendo-window [top]="100" [left]="600" [width]="500" [height]="200" title="Imports CSV" *ngIf="opened"
-  (dragStart)="onDragStart()" (dragEnd)="onDragEnd()" (resizeStart)="onResizeStart()" (resizeEnd)="onResizeEnd()"
+<kendo-window [top]="200" [width]="500" [height]="200" title="Imports CSV" *ngIf="opened" (dragStart)="onDragStart()"
+  (dragEnd)="onDragEnd()" (resizeStart)="onResizeStart()" (resizeEnd)="onResizeEnd()"
   (stateChange)="onStateChange($event)" (close)="onClose()">
-  <kendo-upload [saveUrl]="saveUrl" (success)="successEventHandler($event)"></kendo-upload>
+  <kendo-upload [saveUrl]="saveUrl" [restrictions]="uploadRestrictions" (success)="successEventHandler($event)">
+  </kendo-upload>
 </kendo-window>

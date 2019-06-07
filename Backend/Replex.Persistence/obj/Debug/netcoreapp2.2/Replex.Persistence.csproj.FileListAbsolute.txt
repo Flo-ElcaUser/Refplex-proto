@@ -13,3 +13,11 @@ C:\repo\replex_proto\Backend\Replex.Persistence\obj\Debug\netcoreapp2.2\Replex.P
 C:\repo\replex_proto\Backend\Replex.Persistence\obj\Debug\netcoreapp2.2\Replex.Persistence.AssemblyInfo.cs
 C:\repo\replex_proto\Backend\Replex.Persistence\obj\Debug\netcoreapp2.2\Replex.Persistence.dll
 C:\repo\replex_proto\Backend\Replex.Persistence\obj\Debug\netcoreapp2.2\Replex.Persistence.pdb
+C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Persistence\bin\Debug\netcoreapp2.2\Replex.Persistence.deps.json
+C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Persistence\bin\Debug\netcoreapp2.2\Replex.Persistence.dll
+C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Persistence\bin\Debug\netcoreapp2.2\Replex.Persistence.pdb
+C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Persistence\obj\Debug\netcoreapp2.2\Replex.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Persistence\obj\Debug\netcoreapp2.2\Replex.Persistence.AssemblyInfoInputs.cache
+C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Persistence\obj\Debug\netcoreapp2.2\Replex.Persistence.AssemblyInfo.cs
+C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Persistence\obj\Debug\netcoreapp2.2\Replex.Persistence.dll
+C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Persistence\obj\Debug\netcoreapp2.2\Replex.Persistence.pdb

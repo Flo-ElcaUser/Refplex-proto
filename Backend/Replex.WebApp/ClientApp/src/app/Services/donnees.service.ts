@@ -3,7 +3,7 @@ import { donnees } from '../donnees/donnee';
 
 @Injectable({
     providedIn: 'root',
-  })
+})
 export class DonneesService {
     private data: any[] = donnees;
     private counter: number = donnees.length;

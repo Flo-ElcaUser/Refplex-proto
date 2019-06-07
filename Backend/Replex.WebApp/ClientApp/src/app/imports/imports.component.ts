@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SortDescriptor, orderBy } from '@progress/kendo-data-query';
 import { GridDataResult } from '@progress/kendo-angular-grid';
+import { SelectEvent, FileInfo, FileRestrictions } from '@progress/kendo-angular-upload';
 
 @Component({
   selector: 'app-imports',
@@ -73,6 +74,26 @@ export class ImportsComponent implements OnInit {
   private log(event: string): void {
     this.events = [event].concat(this.events);
   }
+
+
+
+  saveUrl = 'api/SampleData/SaveFile'; // should represent an actual API endpoint
+  uploadRemoveUrl = 'removeUrl'; // should represent an actual API endpoint
+
+  myFiles: Array<FileInfo> = [];
+
+  selectEventHandler(e: SelectEvent) {
+    e.files.forEach((file) => this.myFiles.push(file));
+  }
+
+  successEventHandler(e) {
+    this.myFiles = e.response.json().uri;
+  }
+
+  uploadRestrictions: FileRestrictions = {
+    allowedExtensions: ['.csv', '.xls']
+  };
+
 
 }
 
