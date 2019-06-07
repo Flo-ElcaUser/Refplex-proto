@@ -2,7 +2,7 @@
   <button kendoButton (click)="onButtonUploadClick($event)" [icon]="'sort-desc'">Filters</button>
   <button kendoButton (click)="open()" [icon]="'plus'">Importer CSV</button>
 </div>
-<kendo-grid [data]="gridData" [height]="500" [sortable]="{mode: 'multiple'}" [sort]="sort"
+<kendo-grid [data]="gridData" [height]="500" [sortable]="{mode: 'single'}" [sort]="sort"
   (sortChange)="sortChange($event)">
   <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="DateImport" title="Date Import"
     width="50">
