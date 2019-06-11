@@ -1,0 +1,14 @@
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\bin\Debug\netcoreapp2.2\ReplexPosAPI.deps.json
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\bin\Debug\netcoreapp2.2\ReplexPosAPI.runtimeconfig.json
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\bin\Debug\netcoreapp2.2\ReplexPosAPI.runtimeconfig.dev.json
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\bin\Debug\netcoreapp2.2\ReplexPosAPI.dll
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\bin\Debug\netcoreapp2.2\ReplexPosAPI.pdb
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\obj\Debug\netcoreapp2.2\ReplexPosAPI.csprojAssemblyReference.cache
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\obj\Debug\netcoreapp2.2\ReplexPosAPI.csproj.CoreCompileInputs.cache
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\obj\Debug\netcoreapp2.2\ReplexPosAPI.RazorAssemblyInfo.cache
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\obj\Debug\netcoreapp2.2\ReplexPosAPI.RazorAssemblyInfo.cs
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\obj\Debug\netcoreapp2.2\ReplexPosAPI.AssemblyInfoInputs.cache
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\obj\Debug\netcoreapp2.2\ReplexPosAPI.AssemblyInfo.cs
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\obj\Debug\netcoreapp2.2\ReplexPosAPI.RazorTargetAssemblyInfo.cache
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\obj\Debug\netcoreapp2.2\ReplexPosAPI.dll
+C:\Users\pky\source\repos\ReplexPosAPI\ReplexPosAPI\obj\Debug\netcoreapp2.2\ReplexPosAPI.pdb
