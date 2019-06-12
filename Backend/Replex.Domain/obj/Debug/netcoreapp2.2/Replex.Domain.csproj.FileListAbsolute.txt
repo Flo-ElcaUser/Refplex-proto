@@ -15,3 +15,4 @@ C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Domain\
 C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Domain\obj\Debug\netcoreapp2.2\Replex.Domain.AssemblyInfo.cs
 C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Domain\obj\Debug\netcoreapp2.2\Replex.Domain.dll
 C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Domain\obj\Debug\netcoreapp2.2\Replex.Domain.pdb
+C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Domain\obj\Debug\netcoreapp2.2\Replex.Domain.csprojAssemblyReference.cache

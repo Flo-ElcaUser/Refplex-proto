@@ -14,6 +14,7 @@ import { Metadata, Analyse } from '../model/metadata';
 })
 export class WebApiService {
     ApiUrl = 'http://localhost:3000/';  // URL to web api
+    basicUrl = 'http://localhost:55575/api/';
 
     constructor(private http: HttpClient) {
     }
@@ -31,6 +32,15 @@ export class WebApiService {
     public getAnalyseData(param: string) {
         try {
             return this.http.get<Metadata>(this.ApiUrl + 'metadata/' + param);
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    public getImports() {
+        try {
+            return this.http.get<any>(this.basicUrl + 'ImportLogs');
 
         } catch (error) {
             console.log(error);

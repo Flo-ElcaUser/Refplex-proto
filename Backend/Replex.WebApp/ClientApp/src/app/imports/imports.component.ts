@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SortDescriptor, orderBy } from '@progress/kendo-data-query';
 import { GridDataResult } from '@progress/kendo-angular-grid';
 import { SelectEvent, FileInfo, FileRestrictions } from '@progress/kendo-angular-upload';
+import { WebApiService } from '../Services/WebApiService';
 
 @Component({
   selector: 'app-imports',
@@ -11,13 +12,14 @@ import { SelectEvent, FileInfo, FileRestrictions } from '@progress/kendo-angular
 export class ImportsComponent implements OnInit {
 
   public gridData: GridDataResult;
-  public data: any[] = sampleProducts;
+  public data: any[] = [];
 
-  constructor() {
+  constructor(private webApiService: WebApiService) {
     this.loadProducts();
   }
 
   ngOnInit() {
+    this.GetData();
   }
 
   public sort: SortDescriptor[] = [{
@@ -75,6 +77,14 @@ export class ImportsComponent implements OnInit {
     this.events = [event].concat(this.events);
   }
 
+  public GetData() {
+    this.webApiService.getImports()
+      .subscribe(data => {
+        this.data = data;
+        console.log("Test: ", data);
+      });
+  }
+
 
 
   saveUrl = 'api/SampleData/SaveFile'; // should represent an actual API endpoint
@@ -96,76 +106,3 @@ export class ImportsComponent implements OnInit {
 
 
 }
-
-export const sampleProducts = [
-  {
-    "DateImport": "14-11-2016",
-    "Transaction": "13,237",
-    "Erreurs": 0,
-    "Type": "data.csv",
-    "Source": "SFTP"
-  },
-  {
-    "DateImport": "05-07-2017",
-    "Transaction": "9,801",
-    "Erreurs": 0,
-    "Type": "data.csv",
-    "Source": "SFTP"
-  },
-  {
-    "DateImport": "26-07-2015",
-    "Transaction": "4,359",
-    "Erreurs": 0,
-    "Type": "data.csv",
-    "Source": "SFTP"
-  },
-  {
-    "DateImport": "28-07-2015",
-    "Transaction": "11,190",
-    "Erreurs": 0,
-    "Type": "data.csv",
-    "Source": "SFTP"
-  },
-  {
-    "DateImport": "08-11-2014",
-    "Transaction": "12,637",
-    "Erreurs": 0,
-    "Type": "data.csv",
-    "Source": "SFTP"
-  },
-  {
-    "DateImport": "14-02-2015",
-    "Transaction": "5,201",
-    "Erreurs": 0,
-    "Type": "data.csv",
-    "Source": "SFTP"
-  },
-  {
-    "DateImport": "23-03-2018",
-    "Transaction": "9,311",
-    "Erreurs": 0,
-    "Type": "data.csv",
-    "Source": "SFTP"
-  },
-  {
-    "DateImport": "25-02-2016",
-    "Transaction": "12,714",
-    "Erreurs": 0,
-    "Type": "data.csv",
-    "Source": "SFTP"
-  },
-  {
-    "DateImport": "30-11-2014",
-    "Transaction": "13,502",
-    "Erreurs": 0,
-    "Type": "data.csv",
-    "Source": "SFTP"
-  },
-  {
-    "DateImport": "04-09-2014",
-    "Transaction": "12,926",
-    "Erreurs": 0,
-    "Type": "data.csv",
-    "Source": "SFTP"
-  }
-];

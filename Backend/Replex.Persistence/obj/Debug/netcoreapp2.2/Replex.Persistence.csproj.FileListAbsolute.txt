@@ -21,3 +21,4 @@ C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Persist
 C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Persistence\obj\Debug\netcoreapp2.2\Replex.Persistence.AssemblyInfo.cs
 C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Persistence\obj\Debug\netcoreapp2.2\Replex.Persistence.dll
 C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Persistence\obj\Debug\netcoreapp2.2\Replex.Persistence.pdb
+C:\Users\jff\Documents\ELCA\Replex\replex-v2\Replex-proto\Backend\Replex.Persistence\obj\Debug\netcoreapp2.2\Replex.Persistence.csprojAssemblyReference.cache

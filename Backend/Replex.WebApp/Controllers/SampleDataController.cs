@@ -1,11 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+using Newtonsoft.Json;
 
 namespace Replex.Presentation.Controllers
 {
@@ -47,26 +51,74 @@ namespace Replex.Presentation.Controllers
     [HttpPost("[Action]")]
     async public Task<IActionResult> SaveFile(IFormFile files)
     {
-      var connectionString = "DefaultEndpointsProtocol=https;AccountName=etmrdatalake01;AccountKey=kAjPNbVTn8hqwJoPEiHS0KIM/mNyoIs2rH8O72JMj84nMRq8JYGwTolXYYtFmT92yy8syUNTMOOy4m2s2TXv5g==;EndpointSuffix=core.windows.net";
-
-      CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
-
-      CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-      CloudBlobContainer container = blobClient.GetContainerReference("output");
-
-      CloudBlockBlob blockBlob = container.GetBlockBlobReference(files.FileName);
-
-      using (var fileStream = files.OpenReadStream())
+      try
       {
-        await blockBlob.UploadFromStreamAsync(fileStream);
+        var connectionString = "DefaultEndpointsProtocol=https;AccountName=etmrdatalake01;AccountKey=kAjPNbVTn8hqwJoPEiHS0KIM/mNyoIs2rH8O72JMj84nMRq8JYGwTolXYYtFmT92yy8syUNTMOOy4m2s2TXv5g==;EndpointSuffix=core.windows.net";
+
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+        CloudBlobContainer container = blobClient.GetContainerReference("raw");
+
+        string newFileName = "NOVA_" + DateTime.Now.ToString("MM-dd-yyyy-H:mm") + ".csv";
+
+        CloudBlockBlob blockBlob = container.GetBlockBlobReference(newFileName);
+
+        if (!await blockBlob.ExistsAsync())
+        {
+          CloudBlockBlob blob = container.GetBlockBlobReference(files.FileName);
+
+          if (await blob.ExistsAsync())
+          {
+            await blockBlob.StartCopyAsync(blob);
+            await blob.DeleteIfExistsAsync();
+          }
+        }
+
+        using (var fileStream = files.OpenReadStream())
+        {
+          await blockBlob.UploadFromStreamAsync(fileStream);
+        }
+
+        var data = new {
+        importedRows = 0,
+        importDate = DateTime.Now.ToString("yyyy’-‘MM’-‘dd’T’HH’:’mm’:’ss"),
+        importType = newFileName,
+        error = 0,
+        errorMessage = "",
+        source = "Import",
+        status = "To Create"
+      };
+
+        var json = JsonConvert.SerializeObject(data);
+        var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+
+
+        using (var client = new HttpClient())
+        {
+          client.BaseAddress = new Uri("http://localhost:55575/api/");
+          client.DefaultRequestHeaders.Accept.Clear();
+          client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+          var response = client.PostAsync("ImportLogs", stringContent).Result;
+          if (response.IsSuccessStatusCode)
+          {
+            string responseString = response.Content.ReadAsStringAsync().Result;
+          }
+        }
+
+        return Json(new
+        {
+          name = blockBlob.Name,
+          uri = blockBlob.Uri,
+          size = blockBlob.Properties.Length
+        }); ;
+
       }
-      return Json(new
+      catch (Exception)
       {
-        name = blockBlob.Name,
-        uri = blockBlob.Uri,
-        size = blockBlob.Properties.Length
-      });
+        return null;
+      }
     }
   }
 }

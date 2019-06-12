@@ -47,7 +47,38 @@ Thumbs.db
 /Backend/.vs/Replex/v15/Server/sqlite3
 
 Backend/Replex/Replex\.Presentation/ClientApp/node_modules/
-Backend/Replex.Domain/obj/Debug/netcoreapp2.2/Replex.Domain.csproj.CoreCompileInputs.cache
-Backend/Replex.Persistence/obj/Debug/netcoreapp2.2/Replex.Persistence.csproj.CoreCompileInputs.cache
-Backend/Replex.Services/obj/Debug/netcoreapp2.2/Replex.Services.csproj.CoreCompileInputs.cache
-Backend/.vs/Replex/v15/.suo
+
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio 2017
+.vs/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio Code
+.vscode
+
+
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
