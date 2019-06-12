@@ -83,7 +83,7 @@ namespace Replex.Presentation.Controllers
 
         var data = new {
         importedRows = 0,
-        importDate = DateTime.Now.ToString("yyyy’-‘MM’-‘dd’T’HH’:’mm’:’ss"),
+        importDate = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss"),
         importType = newFileName,
         error = 0,
         errorMessage = "",

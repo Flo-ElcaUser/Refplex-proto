@@ -73,8 +73,9 @@ namespace ReplexPosAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/ImportLogs
-        [HttpPost]
+    // POST: api/ImportLogs
+    [EnableCors("AllowOrigin")]
+    [HttpPost]
         public async Task<ActionResult<ImportLog>> PostImportLog(ImportLog importLog)
         {
             _context.ImportLog.Add(importLog);
