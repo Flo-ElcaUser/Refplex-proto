@@ -2,19 +2,20 @@
   <button kendoButton (click)="onButtonUploadClick($event)" [icon]="'sort-desc'">Filters</button>
   <button kendoButton (click)="open()" [icon]="'plus'">Importer CSV</button>
 </div>
-<kendo-grid [data]="gridData" [height]="500" [sortable]="{mode: 'multiple'}" [sort]="sort"
+<kendo-grid [data]="data" [height]="500" [sortable]="{mode: 'multiple'}" [sort]="sort"
   (sortChange)="sortChange($event)">
-  <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="DateImport" title="Date Import"
+  <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="importDate" title="Date Import"
     width="50">
   </kendo-grid-column>
-  <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="Transaction" title="Transaction"
+  <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="errorMessage" title="Transaction"
     width="50">
   </kendo-grid-column>
   <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="error" title="Erreurs" width="50">
   </kendo-grid-column>
-  <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="Type" title="Type fichier" width="50">
+  <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="importType" title="Type fichier"
+    width="50">
   </kendo-grid-column>
-  <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="source" title="Source" width="50">
+  <kendo-grid-column [headerClass]="'bg--white'" [class]="'bg--white'" field="source" title="source" width="50">
   </kendo-grid-column>
 </kendo-grid>
 

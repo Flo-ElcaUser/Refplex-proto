@@ -38,6 +38,8 @@ export class ImportsComponent implements OnInit {
       data: orderBy(this.data, this.sort),
       total: this.data.length
     };
+
+    console.log("Tests: ", this.gridData);
   }
 
   public opened = false;
@@ -81,7 +83,7 @@ export class ImportsComponent implements OnInit {
     this.webApiService.getImports()
       .subscribe(data => {
         this.data = data;
-        console.log("Test: ", data);
+        console.log("Test: ", this.data);
       });
   }
 
