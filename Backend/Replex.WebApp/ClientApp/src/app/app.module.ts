@@ -13,6 +13,7 @@ import { ChartsModule } from '@progress/kendo-angular-charts';
 import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import 'hammerjs';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { GridModule } from '@progress/kendo-angular-grid';
@@ -24,6 +25,10 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
 import { ComboBoxModule, DropDownListModule } from '@progress/kendo-angular-dropdowns';
 import { DonneesService } from './Services/donnees.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { FakeDbService } from './fake-db/fake-db.service';
+import { PopupModule } from '@progress/kendo-angular-popup';
+import { PopupAnchorDirective } from './popup.anchor-target.directive';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TopMenuComponent,
     AnalyseComponent,
     DonneesComponent,
+    PopupAnchorDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -52,12 +58,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxUiLoaderModule,
     DialogsModule,
     DropDownListModule,
+    DropDownsModule,
+    PopupModule,
     SidebarModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: AnalyseComponent, pathMatch: 'full' },
       { path: 'imports', component: ImportsComponent },
       { path: 'donnees', component: DonneesComponent }
-    ])
+    ]),
+    InMemoryWebApiModule.forRoot(FakeDbService, {
+      delay: 0,
+      passThruUnknownUrl: true
+    }),
   ],
   providers: [
     DonneesService

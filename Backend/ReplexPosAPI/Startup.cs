@@ -29,7 +29,7 @@ namespace ReplexPosAPI
             services.AddCors(options =>
             {
               options.AddPolicy("AllowOrigin",
-                  builder => builder.WithOrigins("https://localhost:5001"));
+                  builder => builder.WithOrigins("https://localhost:5001").AllowAnyHeader().AllowAnyMethod());
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

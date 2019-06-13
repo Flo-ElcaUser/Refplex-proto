@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -41,8 +42,9 @@ namespace ReplexPosAPI.Controllers
             return ticketPrototype;
         }
 
-        // PUT: api/TicketPrototypes/5
-        [HttpPut("{id}")]
+    // PUT: api/TicketPrototypes/5
+        [EnableCors("AllowOrigin")]
+        [HttpPut("{id}")] 
         public async Task<IActionResult> PutTicketPrototype(int id, TicketPrototype ticketPrototype)
         {
             if (id != ticketPrototype.TicketProtoTypeId)

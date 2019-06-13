@@ -87,10 +87,78 @@
         ],
         "value": 0.2
       }
+    }
+  ],
+  "donnees": [
+    {
+      "id": 1,
+      "dateVente": "28-07-2015",
+      "dateValide": "28-07-2015",
+      "canal": "E-commerce",
+      "type": "Carte journalière",
+      "category": "Adulte",
+      "classe": 2,
+      "produit": "Z10 - Genève - Thonon",
+      "nb": 10,
+      "prix": "CHF 500.00",
+      "dateAjout": "28-07-2015",
+      "dateModif": "28-07-2015"
     },
     {
-      "x": "Tes",
-      "id": 5
+      "id": 2,
+      "dateVente": "28-07-2015",
+      "dateValide": "28-07-2015",
+      "canal": "E-commerce",
+      "type": "Billet",
+      "category": "Adulte",
+      "classe": 2,
+      "produit": "Z10 - Genève - Thonon",
+      "nb": 10,
+      "prix": "CHF 500.00",
+      "dateAjout": "28-07-2015",
+      "dateModif": "28-07-2015"
+    },
+    {
+      "id": 3,
+      "dateVente": "28-07-2015",
+      "dateValide": "28-07-2015",
+      "canal": "E-commerce",
+      "type": "Billet",
+      "category": "Adulte",
+      "classe": 2,
+      "produit": "Z10 - Genève - Thonon",
+      "nb": 10,
+      "prix": "CHF 500.00",
+      "dateAjout": "28-07-2015",
+      "dateModif": "28-07-2015"
+    },
+    {
+      "id": 47,
+      "dateVente": "10",
+      "dateValide": "0212",
+      "canal": "0",
+      "type": "00",
+      "category": "0",
+      "classe": "0",
+      "produit": "0",
+      "nb": "0",
+      "prix": "00",
+      "dateAjout": "0",
+      "dateModif": "0"
+    },
+    {
+      "id": 48,
+      "dateVente": "",
+      "dateValide": "",
+      "canal": "",
+      "type": "",
+      "category": "",
+      "classe": "",
+      "produit": "",
+      "nb": "",
+      "prix": "",
+      "dateAjout": "",
+      "dateModif": ""
     }
   ],
   "analyse": [

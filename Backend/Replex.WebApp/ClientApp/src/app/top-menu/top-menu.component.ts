@@ -16,6 +16,4 @@ export class TopMenuComponent implements OnInit {
   public goToPage(pageName: string) {
     this.router.navigate([`${pageName}`]);
   }
-
-
 }

@@ -1,20 +1,32 @@
-<kendo-grid id="donneesGrid" (cellClick)="cellClickHandler($event)" [groupable]="true" [resizable]="true"
-  [group]="groups" [pageable]="true" [pageSize]="20" (groupChange)="groupChange($event)" [data]="view" height="600"
-  (add)="addHandler($event)">
-  <ng-template kendoGridToolbarTemplate>
-    <button kendoGridAddCommand>Add new</button>
-    <button *ngIf="formGroup" (click)="cancelHandler()" class="k-button k-primary">Cancel</button>
-  </ng-template>
-  <kendo-grid-column field="dateVente" [class]="'bg--white'" title="Date vente"></kendo-grid-column>
-  <kendo-grid-column field="dateValidee" [class]="'bg--white'" title="Date validite"></kendo-grid-column>
-  <kendo-grid-column field="canal" [class]="'bg--white'" editor="string" title="Canal"></kendo-grid-column>
-  <kendo-grid-column field="type" [class]="'bg--white'" editor="string" title="Type"></kendo-grid-column>
-  <kendo-grid-column field="category" [class]="'bg--white'" title="Cat."></kendo-grid-column>
-  <kendo-grid-column field="classe" [class]="'bg--white'" editor="string" title="Cl."></kendo-grid-column>
-  <kendo-grid-column field="produit" [class]="'bg--white'" editor="string" title="Produit"></kendo-grid-column>
-  <kendo-grid-column field="nb" [class]="'bg--white'" editor="string" title="Nb"></kendo-grid-column>
-  <kendo-grid-column field="prix" [class]="'bg--white'" title="Prix"></kendo-grid-column>
-  <kendo-grid-column field="dateAjout" [class]="'bg--white'" editor="string" title="Date d'ajout"></kendo-grid-column>
-  <kendo-grid-column field="dateModif" [class]="'bg--white'" editor="string" title="Derniere modif.">
-  </kendo-grid-column>
+<div class="example-wrapper">
+  <kendo-dropdownlist [data]="listItems"></kendo-dropdownlist>
+</div>
+
+<kendo-grid
+id="donneesGrid"
+  (cellClick)="cellClickHandler($event)"
+  [groupable]="false"
+  [resizable]="true"
+  [sortable]="true"
+  scrollable="virtual"
+  [data]="view"
+  (add)="addHandler($event)"
+>
+<ng-template kendoGridToolbarTemplate>
+    <button kendoGridAddCommand>Ajouter un nouveau</button>
+    <button *ngIf="formGroup"
+        (click)="cancelHandler()"
+        class="k-button k-primary">Annuler</button>
+</ng-template>
+<kendo-grid-column field="salesDate" [class]="'bg--white'" editor="string" [format]="'dd-MM-yyyy'" title="Date vente" ></kendo-grid-column>
+<kendo-grid-column field="validityDate" [class]="'bg--white'" editor="string" [format]="'dd-MM-yyyy'" title="Date validé" ></kendo-grid-column>
+<kendo-grid-column field="channelName" [class]="'bg--white'" editor="string" title="Canal" ></kendo-grid-column>
+<kendo-grid-column field="ticketTypeName" [class]="'bg--white'" editor="string" title="Type" ></kendo-grid-column>
+<kendo-grid-column field="categoryName" [class]="'bg--white'" title="Cat." ></kendo-grid-column>
+<kendo-grid-column field="ci" [class]="'bg--white'" editor="number" title="Cl." ></kendo-grid-column>
+<kendo-grid-column field="productName" [class]="'bg--white'" editor="string" title="Produit" ></kendo-grid-column>
+<kendo-grid-column field="numberOfTickets" [class]="'bg--white'" editor="number" title="Nb" ></kendo-grid-column>
+<kendo-grid-column field="price" [class]="'bg--white'" editor="number" title="Prix" ></kendo-grid-column>
+<kendo-grid-column field="addedDate" [class]="'bg--white'" editor="string" [format]="'dd-MM-yyyy'" title="Date d'ajout" ></kendo-grid-column>
+<kendo-grid-column field="lastModifiedDate" [class]="'bg--white'" editor="string" [format]="'dd-MM-yyyy'" title="Derniere modif." ></kendo-grid-column>
 </kendo-grid>

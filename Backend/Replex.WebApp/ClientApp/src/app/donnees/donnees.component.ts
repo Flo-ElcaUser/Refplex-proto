@@ -1,22 +1,23 @@
 import { Component, OnInit, OnDestroy, Renderer2, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { GroupDescriptor, groupBy, SortDescriptor, orderBy } from '@progress/kendo-data-query';
 import { DonneesService } from '../Services/donnees.service';
 import { GridComponent } from '@progress/kendo-angular-grid';
+import { DonneeModel } from '../shared/models/données/donnée.model';
+import { HttpClient } from '@angular/common/http';
 
 const createFormGroup = dataItem => new FormGroup({
-  'id': new FormControl(dataItem.id) ,
-  'dateVente': new FormControl(dataItem.dateVente) ,
-  'dateValidee': new FormControl(dataItem.dateValidee) ,
-  'canal': new FormControl(dataItem.canal),
-  'type': new FormControl(dataItem.type),
-  'category': new FormControl(dataItem.category),
-  'classe': new FormControl(dataItem.classe),
-  'produit': new FormControl(dataItem.produit),
-  'nb': new FormControl(dataItem.nb),
-  'prix':new FormControl(dataItem.prix),
-  'dateAjout': new FormControl(dataItem.dateAjout),
-  'dateModif': new FormControl(dataItem.dateModif)
+  'ticketProtoTypeId': new FormControl(dataItem.ticketProtoTypeId, Validators.required),
+  'salesDate': new FormControl(dataItem.salesDate, Validators.required),
+  'validityDate': new FormControl(dataItem.validityDate, Validators.required),
+  'channelName': new FormControl(dataItem.channelName, Validators.required),
+  'ticketTypeName': new FormControl(dataItem.ticketTypeName, Validators.required),
+  'categoryName': new FormControl(dataItem.categoryName, Validators.required),
+  'ci': new FormControl(dataItem.ci, Validators.required),
+  'productName': new FormControl(dataItem.productName, Validators.required),
+  'numberOfTickets': new FormControl(dataItem.numberOfTickets, Validators.required),
+  'price': new FormControl(dataItem.price, Validators.required),
+  'addedDate': new FormControl(dataItem.addedDate, Validators.required),
+  'lastModifiedDate': new FormControl(dataItem.lastModifiedDate, Validators.required)
 });
 
 const matches = (el, selector) => (el.matches || el.msMatchesSelector).call(el, selector);
@@ -29,25 +30,18 @@ const matches = (el, selector) => (el.matches || el.msMatchesSelector).call(el, 
 export class DonneesComponent implements OnInit , OnDestroy {
   @ViewChild(GridComponent)
   private grid: GridComponent;
-  public sort: SortDescriptor[] = [{
-    field: 'dateVente',
-    dir: 'asc'
-  }];
-
-  public groups: GroupDescriptor[] = [];
   public view: any[];
-
   public formGroup: FormGroup;
-
   private editedRowIndex: number;
   private docClickSubscription: any;
   private isNew: boolean;
+  public donnees: DonneeModel[];
+  public listItems: Array<string> = ['TPG', 'NOVA', 'SNCF'];
 
-  constructor(private service: DonneesService, private renderer: Renderer2) { }
+  constructor(private service: DonneesService, private renderer: Renderer2, private http: HttpClient) { }
 
   public ngOnInit(): void {
-    this.view = this.service.donnees();
-
+    this.service.donnees().subscribe(x =>{ this.view = x;});
     this.docClickSubscription = this.renderer.listen('document', 'click', this.onDocumentClick.bind(this));
   }
 
@@ -57,19 +51,19 @@ export class DonneesComponent implements OnInit , OnDestroy {
 
   public addHandler(): void {
       this.closeEditor();
-
-      this.formGroup = createFormGroup({
-        'dateVente': '' ,
-        'dateValidee': '' ,
-        'canal': '',
-        'type': '',
-        'category': '',
-        'classe': '',
-        'produit': '',
-        'nb': '',
-        'prix': '',
-        'dateAjout': '',
-        'dateModif': ''
+      
+      this.formGroup = createFormGroup ({
+        'salesDate': '',
+        'validityDate': '' ,
+        'channelName': '',
+        'ticketTypeName': '',
+        'categoryName': '',
+        'ci': '',
+        'productName': '',
+        'numberOfTickets': '',
+        'price': '',
+        'addedDate': '',
+        'lastModifiedDate': ''
       });
       this.isNew = true;
 
@@ -77,11 +71,11 @@ export class DonneesComponent implements OnInit , OnDestroy {
   }
 
   public cellClickHandler({ isEdited, dataItem, rowIndex }): void {
-      if (isEdited || (this.formGroup && !this.formGroup.valid)) {
-          return;
-      }
-
-      this.saveCurrent();
+      // if (isEdited || (this.formGroup && !this.formGroup.valid)) {console.log("dfsdf");
+      //     return;
+      // }
+      
+      this.handleCurrentChange();
 
       this.formGroup = createFormGroup(dataItem);
       this.editedRowIndex = rowIndex;
@@ -91,11 +85,6 @@ export class DonneesComponent implements OnInit , OnDestroy {
 
   public cancelHandler(): void {
       this.closeEditor();
-  }
-
-  public groupChange(groups: GroupDescriptor[]): void {
-      this.groups = groups;
-      this.view = groupBy(this.service.donnees(), this.groups);
   }
 
   private closeEditor(): void {
@@ -109,16 +98,24 @@ export class DonneesComponent implements OnInit , OnDestroy {
   private onDocumentClick(e: any): void {
       if (this.formGroup && this.formGroup.valid &&
           !matches(e.target, '#donneesGrid tbody *, #donneesGrid .k-grid-toolbar .k-button')) {
-          this.saveCurrent();
+          this.handleCurrentChange();
       }
   }
 
-  private saveCurrent(): void {
-    // console.log("save",this.isNew);
+  private handleCurrentChange(): void {
+    console.log("testss");
       if (this.formGroup) {
-          this.service.save(this.formGroup.value, this.isNew);
+        if (this.isNew) {
+          this.service.add(this.formGroup.value).then( val =>
+            this.service.donnees().subscribe(x => { this.view = x; })
+          );
+        } else {
+          this.service.save(this.formGroup.value).then( val =>
+            this.service.donnees().subscribe(x => { this.view = x; })
+          );
+        }
           this.closeEditor();
       }
   }
-}
 
+}
