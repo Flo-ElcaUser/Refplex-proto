@@ -5,19 +5,19 @@ import { Observable } from 'rxjs';
 
 const httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Authorization': 'my-auth-token',
-      'Access-Control-Allow-Origin': 'http://localhost:3000'
+        'Content-Type': 'application/json',
+        'Authorization': 'my-auth-token',
+        'Access-Control-Allow-Origin': 'http://localhost:3000'
     })
-  };
+};
 
 @Injectable({
     providedIn: 'root',
 })
 export class DonneesService {
-    private data: any[] =  donnees;
+    private data: any[] = donnees;
     private counter: number = donnees.length;
-    apiUrl = 'http://localhost:55575/api/';  // URL to web api
+    apiUrl = 'api/';  // URL to web api
 
     constructor(private http: HttpClient) { }
 
@@ -50,7 +50,7 @@ export class DonneesService {
     public save(value: any): Promise<any> {
         console.log(JSON.stringify(value));
         try {
-            return this.http.put<any[]>(this.apiUrl + 'TicketPrototypes/'+ value.ticketProtoTypeId, JSON.stringify(value) , httpOptions).toPromise();
+            return this.http.put<any[]>(this.apiUrl + 'TicketPrototypes/' + value.ticketProtoTypeId, JSON.stringify(value), httpOptions).toPromise();
 
         } catch (error) {
             console.log(error);
@@ -58,9 +58,12 @@ export class DonneesService {
     }
 
     public add(value: any): Promise<any> {
+        let array: Array<any> = [];
+        console.log(value);
+        array.push(value);
         try {
             console.log("tttt");
-            return this.http.post<any[]>(this.apiUrl + 'TicketPrototypes/', JSON.stringify(value) , httpOptions).toPromise();
+            return this.http.post<any[]>(this.apiUrl + 'TicketPrototypes/', JSON.stringify(array), httpOptions).toPromise();
 
         } catch (error) {
             console.log(error);

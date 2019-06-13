@@ -112,7 +112,7 @@ namespace Replex.Presentation.Controllers
           name = blockBlob.Name,
           uri = blockBlob.Uri,
           size = blockBlob.Properties.Length
-        }); ;
+        });
 
       }
       catch (Exception)

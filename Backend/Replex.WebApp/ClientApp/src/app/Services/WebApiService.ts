@@ -40,7 +40,7 @@ export class WebApiService {
 
     public getImports() {
         try {
-            return this.http.get<any>(this.basicUrl + 'ImportLogs');
+            return this.http.get<any>('api/' + 'ImportLogs');
 
         } catch (error) {
             console.log(error);
