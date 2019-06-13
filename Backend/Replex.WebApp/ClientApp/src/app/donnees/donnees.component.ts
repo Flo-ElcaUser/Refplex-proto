@@ -6,18 +6,18 @@ import { DonneeModel } from '../shared/models/données/donnée.model';
 import { HttpClient } from '@angular/common/http';
 
 const createFormGroup = dataItem => new FormGroup({
-  'id': new FormControl(dataItem.id, Validators.required),
-  'dateVente': new FormControl(dataItem.dateVente, Validators.required),
-  'dateValide': new FormControl(dataItem.dateValide, Validators.required),
-  'canal': new FormControl(dataItem.canal, Validators.required),
-  'type': new FormControl(dataItem.type, Validators.required),
-  'category': new FormControl(dataItem.category, Validators.required),
-  'classe': new FormControl(dataItem.classe, Validators.required),
-  'produit': new FormControl(dataItem.produit, Validators.required),
-  'nb': new FormControl(dataItem.nb, Validators.required),
-  'prix': new FormControl(dataItem.prix, Validators.required),
-  'dateAjout': new FormControl(dataItem.dateAjout, Validators.required),
-  'dateModif': new FormControl(dataItem.dateModif, Validators.required)
+  'ticketProtoTypeId': new FormControl(dataItem.ticketProtoTypeId, Validators.required),
+  'salesDate': new FormControl(dataItem.salesDate, Validators.required),
+  'validityDate': new FormControl(dataItem.validityDate, Validators.required),
+  'channelName': new FormControl(dataItem.channelName, Validators.required),
+  'ticketTypeName': new FormControl(dataItem.ticketTypeName, Validators.required),
+  'categoryName': new FormControl(dataItem.categoryName, Validators.required),
+  'ci': new FormControl(dataItem.ci, Validators.required),
+  'productName': new FormControl(dataItem.productName, Validators.required),
+  'numberOfTickets': new FormControl(dataItem.numberOfTickets, Validators.required),
+  'price': new FormControl(dataItem.price, Validators.required),
+  'addedDate': new FormControl(dataItem.addedDate, Validators.required),
+  'lastModifiedDate': new FormControl(dataItem.lastModifiedDate, Validators.required)
 });
 
 const matches = (el, selector) => (el.matches || el.msMatchesSelector).call(el, selector);
@@ -51,19 +51,19 @@ export class DonneesComponent implements OnInit , OnDestroy {
 
   public addHandler(): void {
       this.closeEditor();
-
+      
       this.formGroup = createFormGroup ({
-        'dateVente': '',
-        'dateValide': '' ,
-        'canal': '',
-        'type': '',
-        'category': '',
-        'classe': '',
-        'produit': '',
-        'nb': '',
-        'prix': '',
-        'dateAjout': '',
-        'dateModif': ''
+        'salesDate': '',
+        'validityDate': '' ,
+        'channelName': '',
+        'ticketTypeName': '',
+        'categoryName': '',
+        'ci': '',
+        'productName': '',
+        'numberOfTickets': '',
+        'price': '',
+        'addedDate': '',
+        'lastModifiedDate': ''
       });
       this.isNew = true;
 
@@ -71,10 +71,10 @@ export class DonneesComponent implements OnInit , OnDestroy {
   }
 
   public cellClickHandler({ isEdited, dataItem, rowIndex }): void {
-      if (isEdited || (this.formGroup && !this.formGroup.valid)) {
-          return;
-      }
-
+      // if (isEdited || (this.formGroup && !this.formGroup.valid)) {console.log("dfsdf");
+      //     return;
+      // }
+      
       this.handleCurrentChange();
 
       this.formGroup = createFormGroup(dataItem);
@@ -103,6 +103,7 @@ export class DonneesComponent implements OnInit , OnDestroy {
   }
 
   private handleCurrentChange(): void {
+    console.log("testss");
       if (this.formGroup) {
         if (this.isNew) {
           this.service.add(this.formGroup.value).then( val =>

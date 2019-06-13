@@ -17,13 +17,13 @@ const httpOptions = {
 export class DonneesService {
     private data: any[] =  donnees;
     private counter: number = donnees.length;
-    apiUrl = 'http://localhost:3000/';  // URL to web api
+    apiUrl = 'http://localhost:55575/api/';  // URL to web api
 
     constructor(private http: HttpClient) { }
 
     public donnees() {
         try {
-            return this.http.get<any[]>(this.apiUrl + 'donnees');
+            return this.http.get<any[]>(this.apiUrl + 'TicketPrototypes');
 
         } catch (error) {
             console.log(error);
@@ -31,7 +31,7 @@ export class DonneesService {
     }
 
     public remove(donnee: any): void {
-        const index = this.data.findIndex(({ id }) => id === donnee.id);
+        const index = this.data.findIndex(({ ticketProtoTypeId }) => ticketProtoTypeId === donnee.ticketProtoTypeId);
         this.data.splice(index, 1);
     }
 
@@ -50,7 +50,7 @@ export class DonneesService {
     public save(value: any): Promise<any> {
         console.log(JSON.stringify(value));
         try {
-            return this.http.put<any[]>(this.apiUrl + 'donnees/'+ value.id, JSON.stringify(value) , httpOptions).toPromise();
+            return this.http.put<any[]>(this.apiUrl + 'TicketPrototypes/'+ value.ticketProtoTypeId, JSON.stringify(value) , httpOptions).toPromise();
 
         } catch (error) {
             console.log(error);
@@ -59,7 +59,8 @@ export class DonneesService {
 
     public add(value: any): Promise<any> {
         try {
-            return this.http.post<any[]>(this.apiUrl + 'donnees', JSON.stringify(value) , httpOptions).toPromise();
+            console.log("tttt");
+            return this.http.post<any[]>(this.apiUrl + 'TicketPrototypes/', JSON.stringify(value) , httpOptions).toPromise();
 
         } catch (error) {
             console.log(error);
