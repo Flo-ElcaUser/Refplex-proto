@@ -1,6 +1,7 @@
 export class DonneeModel {
-    dateVente?: string;
-    dateValid?: string;
+    id?: number;
+    dateVente?: Date;
+    dateValide?: Date;
     canal?: string;
     type?: string;
     category?: string;
@@ -8,11 +9,11 @@ export class DonneeModel {
     produit?: string;
     nb: string;
     prix?: string;
-    dateAdded?: string;
-    dateModif?: string;
+    dateAdded?: Date;
+    dateModif?: Date;
 }
 
 export class PrixModel {
     currency?: string;
-    cash?: Int16Array;
+    cash?: number;
 }
