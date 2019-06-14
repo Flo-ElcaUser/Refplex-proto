@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { donnees } from '../donnees/donnee';
-import { Observable } from 'rxjs';
 
 const httpOptions = {
     headers: new HttpHeaders({
