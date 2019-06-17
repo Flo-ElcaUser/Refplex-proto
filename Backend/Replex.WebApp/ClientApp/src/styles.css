@@ -39,3 +39,7 @@ button:focus {
 .bg--white {
   background-color: #fff !important;
 }
+
+.button__primary {
+  margin-top: 70px !important;
+}

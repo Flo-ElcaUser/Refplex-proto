@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -29,6 +29,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { FakeDbService } from './fake-db/fake-db.service';
 import { PopupModule } from '@progress/kendo-angular-popup';
 import { PopupAnchorDirective } from './popup.anchor-target.directive';
+import { IntlModule } from '@progress/kendo-angular-intl';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { PopupAnchorDirective } from './popup.anchor-target.directive';
     DropDownListModule,
     DropDownsModule,
     PopupModule,
+    IntlModule,
     SidebarModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: AnalyseComponent, pathMatch: 'full' },

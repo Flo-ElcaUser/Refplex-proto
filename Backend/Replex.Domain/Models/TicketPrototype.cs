@@ -8,7 +8,7 @@ namespace Replex.Domain.Models
     public class TicketPrototype
     {
         public virtual int TicketProtoTypeId { get; set; }
-        public virtual DateTime SalesDate { get; set; }
+        public virtual DateTime? SalesDate { get; set; }
         public virtual DateTime ValidityDate { get; set; }
         public virtual string ChannelName { get; set; }
         public virtual string TicketTypeName { get; set; }
