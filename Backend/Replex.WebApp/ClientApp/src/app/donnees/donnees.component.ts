@@ -1,9 +1,12 @@
 import { Component, OnInit, OnDestroy, Renderer2, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DonneesService } from '../Services/donnees.service';
-import { GridComponent } from '@progress/kendo-angular-grid';
+import { GridComponent, PageChangeEvent } from '@progress/kendo-angular-grid';
 import { DonneeModel } from '../shared/models/données/donnée.model';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
+import { tap, switchMap } from 'rxjs/operators';
+import { SortDescriptor, orderBy } from '@progress/kendo-data-query';
 
 const createFormGroup = dataItem => new FormGroup({
   'ticketProtoTypeId': new FormControl(0),
@@ -16,9 +19,10 @@ const createFormGroup = dataItem => new FormGroup({
   'productName': new FormControl(dataItem.productName, Validators.required),
   'numberOfTickets': new FormControl(dataItem.numberOfTickets, Validators.required),
   'price': new FormControl(dataItem.price, Validators.required),
-  // 'addedDate': new FormControl(new Date(), Validators.required),
-  'lastModifiedDate': new FormControl(new Date(), Validators.required),
+  'addedDate': new FormControl(dataItem.addedDate, Validators.required),
+  'lastModifiedDate': new FormControl(dataItem.lastModifiedDate, Validators.required),
   'distributorName': new FormControl(dataItem.distributorName),
+  'status': new FormControl('ToCreate'),
   'source': new FormControl('Manual')
 });
 
@@ -40,9 +44,21 @@ export class DonneesComponent implements OnInit, OnDestroy {
   private isNew: boolean;
   public donnees: DonneeModel[];
   public listItems: Array<string> = ['TPG', 'NOVA', 'SNCF'];
+  public channel: Array<string> = ['E-commerce', 'Billets SMS', 'Apps CFF'];
+  public ticket: Array<string> = ['Carte journalière', 'Billet', 'Abo annuel', 'Demi-tarif'];
+  public ci: Array<string> = ['1', '2'];
+  public category: Array<string> = ['Adulte', 'Junior'];
   public distributorName: string;
+  public pageSize = 100;
+  public skip = 0;
+  public query: any;
 
-  constructor(private service: DonneesService, private renderer: Renderer2, private http: HttpClient) { }
+  constructor(private service: DonneesService, private renderer: Renderer2, private http: HttpClient) {
+  }
+  public sort: SortDescriptor[] = [{
+    field: 'ProductName',
+    dir: 'asc'
+  }];
 
   public ngOnInit(): void {
     this.service.donnees().subscribe(x => { this.view = x; });
@@ -66,7 +82,7 @@ export class DonneesComponent implements OnInit, OnDestroy {
       'productName': '',
       'numberOfTickets': '',
       'price': '',
-      'addedDate': new Date(),
+      'addedDate': '',
       'lastModifiedDate': '',
       'distributorName': this.distributorName
     });

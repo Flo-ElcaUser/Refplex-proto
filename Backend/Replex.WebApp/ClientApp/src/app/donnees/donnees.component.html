@@ -8,19 +8,33 @@
     <button kendoGridAddCommand>Ajouter un nouveau</button>
     <button *ngIf="formGroup" (click)="cancelHandler()" class="k-button k-primary">Annuler</button>
   </ng-template>
-  <kendo-grid-column field="salesDate" [class]="'bg--white'" editor="date" [format]="'dd-MM-yyyy'" title="Date vente">
+  <kendo-grid-column field="salesDate" [class]="'bg--white'" editor="date" format="{0:d}" title="Date vente">
   </kendo-grid-column>
-  <kendo-grid-column field="validityDate" [class]="'bg--white'" editor="date" [format]="'dd-MM-yyyy'"
+  <kendo-grid-column field="validityDate" [class]="'bg--white'" editor="date" format="{0:d}"
     title="Date validé"></kendo-grid-column>
-  <kendo-grid-column field="channelName" [class]="'bg--white'" editor="string" title="Canal"></kendo-grid-column>
-  <kendo-grid-column field="ticketTypeName" [class]="'bg--white'" editor="string" title="Type"></kendo-grid-column>
-  <kendo-grid-column field="categoryName" [class]="'bg--white'" title="Cat."></kendo-grid-column>
-  <kendo-grid-column field="ci" [class]="'bg--white'" editor="number" title="Cl."></kendo-grid-column>
+  <kendo-grid-column field="channelName" [class]="'bg--white'" editor="string" title="Canal">
+    <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+      <kendo-dropdownlist [(ngModel)]="channel" [data]="channel"></kendo-dropdownlist>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="ticketTypeName" [class]="'bg--white'" editor="string" title="Type">
+    <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+      <kendo-dropdownlist [(ngModel)]="ticket" [data]="ticket"></kendo-dropdownlist>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="categoryName" [class]="'bg--white'" title="Cat.">
+    <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+      <kendo-dropdownlist [(ngModel)]="category" [data]="category"></kendo-dropdownlist>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="ci" [class]="'bg--white'" editor="numeric" title="CI.">
+    <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+      <kendo-dropdownlist [(ngModel)]="ci" [data]="ci"></kendo-dropdownlist>
+    </ng-template>
+  </kendo-grid-column>
   <kendo-grid-column field="productName" [class]="'bg--white'" editor="string" title="Produit"></kendo-grid-column>
-  <kendo-grid-column field="numberOfTickets" [class]="'bg--white'" editor="number" title="Nb"></kendo-grid-column>
+  <kendo-grid-column field="numberOfTickets" [class]="'bg--white'" editor="numeric" title="Nb"></kendo-grid-column>
   <kendo-grid-column field="price" [class]="'bg--white'" editor="numeric" title="Prix"></kendo-grid-column>
-  <kendo-grid-column field="addedDate" [class]="'bg--white'" editor="string" [format]="'dd-MM-yyyy'"
-    title="Date d'ajout"></kendo-grid-column>
-  <kendo-grid-column field="lastModifiedDate" [class]="'bg--white'" editor="string" [format]="'dd-MM-yyyy'"
-    title="Derniere modif."></kendo-grid-column>
+  <kendo-grid-column field="addedDate" [class]="'bg--white'" editor="date" format="{0:d}" title="Date d'ajout"></kendo-grid-column>
+  <kendo-grid-column field="lastModifiedDate" [class]="'bg--white'" editor="date" format="{0:d}" title="Derniere modif."></kendo-grid-column>
 </kendo-grid>
