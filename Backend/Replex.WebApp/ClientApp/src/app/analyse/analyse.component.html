@@ -2,11 +2,15 @@
   <div class="analyse--small">
     <div class="box">
       <kendo-chart>
-        <kendo-chart-title align="left" text="BAR CHART 1"></kendo-chart-title>
+        <kendo-chart-title align="left" text="Statut"></kendo-chart-title>
         <kendo-chart-legend position="top"></kendo-chart-legend>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="['Ouvert','Correction requise', 'Validé']">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
         <kendo-chart-series>
-          <kendo-chart-series-item type="column" *ngFor="let item of seriesType" [gap]="2" [data]="item.data"
-            [name]="item.name">
+          <kendo-chart-series-item type="column" *ngFor="let item of seriesType" [gap]="2" [data]="item"
+            [name]="seriesKey">
           </kendo-chart-series-item>
         </kendo-chart-series>
       </kendo-chart>
@@ -14,7 +18,7 @@
     <div class="box">
       <kendo-pdf-export #pdf paperSize="A3" margin="2cm">
         <kendo-chart>
-          <kendo-chart-title align="left" text="PIE CHART 1"></kendo-chart-title>
+          <kendo-chart-title align="left" text="Fichiers importés"></kendo-chart-title>
           <kendo-chart-legend position="top" orientation="horizontal"></kendo-chart-legend>
           <kendo-chart-series>
             <kendo-chart-series-item type="donut" [data]="data" categoryField="name" field="value">
@@ -30,11 +34,10 @@
   <div class="analyse--large">
     <div class="box--large">
       <kendo-chart>
-        <kendo-chart-title align="left" text="LINE CHART"></kendo-chart-title>
+        <kendo-chart-title align="left" text="Erreurs par mois"></kendo-chart-title>
         <kendo-chart-legend position="top" orientation="horizontal"></kendo-chart-legend>
         <kendo-chart-category-axis>
-          <kendo-chart-category-axis-item [categories]="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']"
-            [title]="{ text: 'Months' }">
+          <kendo-chart-category-axis-item [categories]="['Jan', 'Feb', 'Mar', 'Apr']" [title]="{ text: 'Months' }">
           </kendo-chart-category-axis-item>
         </kendo-chart-category-axis>
         <kendo-chart-series>

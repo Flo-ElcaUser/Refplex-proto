@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Newtonsoft.Json;
+using Replex.WebApp.Controllers;
 
 namespace Replex.Presentation.Controllers
 {
@@ -94,7 +95,6 @@ namespace Replex.Presentation.Controllers
         var json = JsonConvert.SerializeObject(data);
         var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
 
-
         using (var client = new HttpClient())
         {
           client.BaseAddress = new Uri("http://localhost:55575/api/");
@@ -112,7 +112,7 @@ namespace Replex.Presentation.Controllers
           name = blockBlob.Name,
           uri = blockBlob.Uri,
           size = blockBlob.Properties.Length
-        });
+        }); ;
 
       }
       catch (Exception)

@@ -100,6 +100,7 @@ export class ImportsComponent implements OnInit {
 
   successEventHandler(e) {
     this.myFiles = e.response.json().uri;
+    this.GetData();
   }
 
   uploadRestrictions: FileRestrictions = {

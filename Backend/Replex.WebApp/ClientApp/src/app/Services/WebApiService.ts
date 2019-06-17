@@ -13,7 +13,7 @@ import { Metadata, Analyse } from '../model/metadata';
     providedIn: 'root',
 })
 export class WebApiService {
-    ApiUrl = 'http://localhost:3000/';  // URL to web api
+    ApiUrl = 'api/';  // URL to web api
     basicUrl = 'http://localhost:55575/api/';
 
     constructor(private http: HttpClient) {
@@ -22,7 +22,7 @@ export class WebApiService {
     /** GET metadata from the server */
     public getPresentData() {
         try {
-            return this.http.get<Metadata[]>(this.ApiUrl + 'metadata');
+            return this.http.get<Metadata[]>(this.ApiUrl + 'MonthlyStatus');
 
         } catch (error) {
             console.log(error);
@@ -31,7 +31,7 @@ export class WebApiService {
 
     public getAnalyseData(param: string) {
         try {
-            return this.http.get<Metadata>(this.ApiUrl + 'metadata/' + param);
+            return this.http.get<any>(this.ApiUrl + 'MonthlyStatus/' + param);
 
         } catch (error) {
             console.log(error);

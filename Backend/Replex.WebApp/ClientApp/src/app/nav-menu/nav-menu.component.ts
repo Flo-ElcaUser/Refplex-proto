@@ -49,30 +49,15 @@ export class NavMenuComponent implements OnInit {
   }
 
   //to be changed to meaningful name
-  public change(param: any) {
-    this.apiService.EditSeries(param);
+  public change(data: any, name: string) {
+    this.apiService.EditSeries(data, name);
   }
 
   public GetData(id: string) {
     this.webApiService.getAnalyseData(id)
       .subscribe(data => {
-        this.change(data.analyse);
+        this.change(data.analysisData.split("/").map(x => parseFloat(x)), data.AnalysisName);
       });
 
   }
-
-  private _toggleSidebar() {
-    this.iconCollapse = this.iconCollapse === 'minus' ? this.iconCollapse = 'plus' : this.iconCollapse = 'minus';
-    this._opened = !this._opened;
-  }
-
-  collapse() {
-    this.isExpanded = false;
-  }
-
-  toggle() {
-    this.isExpanded = !this.isExpanded;
-  }
-
-
 }

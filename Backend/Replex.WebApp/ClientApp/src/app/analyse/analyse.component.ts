@@ -20,9 +20,7 @@ export class AnalyseComponent implements OnInit {
 
   public seriesType: Array<string> = [];
 
-  constructor(private webApiService: WebApiService, private apiService: ApiService) {
-
-  }
+  constructor(private apiService: ApiService) { }
 
 
   public series: any[] = [
@@ -34,48 +32,27 @@ export class AnalyseComponent implements OnInit {
 
   ngOnInit() {
     this.apiService.cast.subscribe(test => this.test = test);
-    this.apiService.casting.subscribe(seriesType => this.GenerateGraph(seriesType));
-
+    this.apiService.castData.subscribe(seriesType => this.GenerateGraph(seriesType));
   }
 
   public GenerateGraph(series: any) {
     this.seriesType = [];
     this.seriesType.push(series);
-    if (series.value) {
-      this.data.push({ name: 'Legend 1', value: series.value });
-    }
-
-
+    // if (series) {
+    //   this.data.push({ name: 'Legend', value: series });
+    // }
   }
 
-  // public GetData() {
 
-  //   // this.webApiService.getAnalyseData(id)
-  //   //   .subscribe(data => {
-  //   //     this.seriesType.push(data);
-  //   //   });
-
-  //   this.webApiService.getMetadata()
-  //     .subscribe(data => {
-  //       data.forEach(element => {
-  //         this.seriesType.push(element.analyse);
-  //       });
-  //     });
-  // }
-
-
-
-  public categories: number[] = [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011];
-
-
+  // public categories: number[] = [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011];
 
   public labelContent(e: any): string {
     return e.category;
   }
 
   public lines: any[] = [{
-    name: "Legend",
-    data: [3.907, 7.943, 7.848, 9.284, 9.263, 9.801, 3.890, 8.238, 9.552, 6.855]
+    name: "Erreurs",
+    data: [10, 25, 7, 23]
   }];
 
 
