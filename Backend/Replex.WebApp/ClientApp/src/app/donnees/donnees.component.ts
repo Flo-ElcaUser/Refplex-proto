@@ -12,7 +12,7 @@ const createFormGroup = dataItem => new FormGroup({
   'ticketProtoTypeId': new FormControl(dataItem.ticketProtoTypeId),
   'salesDate': new FormControl(dataItem.salesDate, Validators.required),
   'validityDate': new FormControl(dataItem.validityDate, Validators.required),
-  'channelName': new FormControl(dataItem.channelName),
+  'channelName': new FormControl(dataItem.channelName, Validators.required),
   'ticketTypeName': new FormControl(dataItem.ticketTypeName, Validators.required),
   'categoryName': new FormControl(dataItem.categoryName, Validators.required),
   'ci': new FormControl(dataItem.ci, Validators.required),
