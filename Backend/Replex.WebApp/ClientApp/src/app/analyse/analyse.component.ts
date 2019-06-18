@@ -10,10 +10,10 @@ import { ApiService } from '../Services/api.service';
   styleUrls: ['./analyse.component.scss']
 })
 export class AnalyseComponent implements OnInit {
-  public data: any[] = [{ name: 'Avril', value: 0.30 },
-  { name: 'Mars', value: 0.20 },
-  { name: 'Février', value: 0.40 },
-  { name: 'Janvier', value: 0.10 }];
+  public data: any[] = [{ name: 'Avril', value: 100 },
+  { name: 'Mars', value: 200 },
+  { name: 'Février', value: 420 },
+  { name: 'Janvier', value: 350 }];
 
   test: string;
   public style: string = 'smooth';
