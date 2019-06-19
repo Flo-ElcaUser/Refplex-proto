@@ -1,9 +1,15 @@
+<div class="content-top__button">
+  <kendo-dropdownbutton [popupSettings]="{align: 'center', popupClass: 'btn__popup'}" [icon]="'sort-desc'"
+    [data]="filterData" (itemClick)="onItemClick($event)" class="btn btn__secondary">User Settings
+  </kendo-dropdownbutton>
+</div>
+
 <div class="example-wrapper">
   <kendo-dropdownlist [data]="listItems" (selectionChange)="selectionChange($event)"></kendo-dropdownlist>
 </div>
 
 <kendo-grid id="donneesGrid" (cellClick)="cellClickHandler($event)" [groupable]="false" [resizable]="true"
-  [sortable]="true" scrollable="virtual" [data]="view" (add)="addHandler($event)" [height]="500">
+  [sortable]="true" scrollable="virtual" [data]="view" (add)="addHandler()" [height]="500">
   <ng-template kendoGridToolbarTemplate>
     <button kendoGridAddCommand>Ajouter un nouveau</button>
     <button *ngIf="formGroup" (click)="cancelHandler()" class="k-button k-primary">Annuler</button>

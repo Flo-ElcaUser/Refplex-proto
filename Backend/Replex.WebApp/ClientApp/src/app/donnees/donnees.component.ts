@@ -32,7 +32,7 @@ const matches = (el, selector) => (el.matches || el.msMatchesSelector).call(el, 
 @Component({
   selector: 'app-donnee',
   templateUrl: './donnees.component.html',
-  styleUrls: ['./donnees.component.css']
+  styleUrls: ['./donnees.component.scss']
 })
 export class DonneesComponent implements OnInit, OnDestroy {
   @ViewChild(GridComponent)
@@ -52,6 +52,13 @@ export class DonneesComponent implements OnInit, OnDestroy {
   public pageSize = 100;
   public skip = 0;
   public query: any;
+  public FilterType = 'Created';
+
+  filterData: Array<any> = [{
+    text: 'Created'
+  }, {
+    text: 'ToCreate'
+  }];
 
   constructor(private service: DonneesService, private renderer: Renderer2, private http: HttpClient) {
   }
@@ -61,7 +68,7 @@ export class DonneesComponent implements OnInit, OnDestroy {
   }];
 
   public ngOnInit(): void {
-    this.service.donnees().subscribe(x => { this.view = this.extractData(x, this.distributorName); });
+    this.load(this.distributorName, this.FilterType);
     this.docClickSubscription = this.renderer.listen('document', 'click', this.onDocumentClick.bind(this));
   }
 
@@ -97,14 +104,22 @@ export class DonneesComponent implements OnInit, OnDestroy {
       console.log("dfsdf");
       return;
     }
-
-
     this.handleCurrentChange();
 
     this.formGroup = createFormGroup(dataItem);
     this.editedRowIndex = rowIndex;
 
     this.grid.editRow(rowIndex, this.formGroup);
+  }
+
+  public load(DistributorName: any, Filter: any) {
+    this.service.donnees(DistributorName, Filter)
+      .subscribe(x => { this.view = this.extractData(x, DistributorName); });
+  }
+
+  public onItemClick(value: any): void {
+    this.FilterType = value.text;
+    this.load(this.distributorName, this.FilterType)
   }
 
   public cancelHandler(): void {
@@ -132,11 +147,11 @@ export class DonneesComponent implements OnInit, OnDestroy {
     if (this.formGroup) {
       if (this.isNew) {
         this.service.add(this.formGroup.value).then(val =>
-          this.service.donnees().subscribe(x => { this.view = this.extractData(x, this.distributorName); })
+          this.load(this.distributorName, this.FilterType)
         );
       } else {
         this.service.save(this.formGroup.value).then(val =>
-          this.service.donnees().subscribe(x => { this.view = this.extractData(x, this.distributorName); })
+          this.load(this.distributorName, this.FilterType)
         );
       }
       this.closeEditor();
@@ -145,53 +160,17 @@ export class DonneesComponent implements OnInit, OnDestroy {
 
   public selectionChange(value: any): void {
     this.distributorName = value;
-    this.service.donnees().subscribe(x => { this.view = this.extractData(x, this.distributorName); })
+    this.load(this.distributorName, this.FilterType);
   }
 
   extractData(value: any, val: any) {
-    value.sort(this.sortedtData);
-    let displayedData = [];
     value.forEach((data) => {
       data.salesDate = new Date(data.salesDate);
       data.validityDate = new Date(data.validityDate);
       data.addedDate = new Date(data.addedDate);
       data.lastModifiedDate = new Date(data.lastModifiedDate);
-
-      if (data.distributorName === this.distributorName) {
-        displayedData.push(data);
-      }
-
     });
-
-    if (displayedData) {
-      return displayedData;
-    }
-
     return value;
-  }
-
-  sortedtData(a, b) {
-    return new Date(b.addedDate).getTime() - new Date(a.addedDate).getTime();
-  }
-
-  //Button
-
-  public events: string[] = [];
-
-  public onClick(): void {
-    this.log('click');
-  }
-
-  public onFocus(): void {
-    this.log('focus');
-  }
-
-  public onBlur(): void {
-    this.log('blur');
-  }
-
-  private log(event: string): void {
-    this.events.push(`${event}`);
   }
 
 }

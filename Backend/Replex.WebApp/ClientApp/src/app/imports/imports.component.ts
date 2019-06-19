@@ -3,6 +3,7 @@ import { SortDescriptor, orderBy } from '@progress/kendo-data-query';
 import { GridDataResult } from '@progress/kendo-angular-grid';
 import { SelectEvent, FileInfo, FileRestrictions } from '@progress/kendo-angular-upload';
 import { WebApiService } from '../Services/WebApiService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-imports',
@@ -14,7 +15,9 @@ export class ImportsComponent implements OnInit {
   public gridData: GridDataResult;
   public data: any[] = [];
 
-  constructor(private webApiService: WebApiService) {
+  public listItems: Array<string> = ['TPG', 'NOVA', 'SNCF'];
+
+  constructor(private webApiService: WebApiService, private router: Router) {
     this.loadProducts();
   }
 
@@ -83,7 +86,6 @@ export class ImportsComponent implements OnInit {
     this.webApiService.getImports()
       .subscribe(data => {
         this.data = data;
-        console.log("Test: ", this.data);
       });
   }
 
@@ -107,5 +109,8 @@ export class ImportsComponent implements OnInit {
     allowedExtensions: ['.csv', '.xls']
   };
 
+  public goToPage(pageName: string) {
+    this.router.navigate([`${pageName}`]);
+  }
 
 }

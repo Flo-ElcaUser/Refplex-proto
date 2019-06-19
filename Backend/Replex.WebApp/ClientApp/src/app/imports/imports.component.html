@@ -1,5 +1,5 @@
 <div class="content-top__button">
-  <button kendoButton (click)="onButtonUploadClick($event)" [icon]="'sort-desc'">Filters</button>
+  <button kendoButton [icon]="'edit'" (click)="goToPage('/donnees')">Saisie de données</button>
   <button kendoButton (click)="open()" [icon]="'plus'">Importer CSV</button>
 </div>
 <kendo-grid [data]="data" [height]="500" [sortable]="{mode: 'multiple'}" [sort]="sort"
@@ -24,5 +24,7 @@
   (dragEnd)="onDragEnd()" (resizeStart)="onResizeStart()" (resizeEnd)="onResizeEnd()"
   (stateChange)="onStateChange($event)" (close)="onClose()">
   <kendo-upload [saveUrl]="saveUrl" [restrictions]="uploadRestrictions" (success)="successEventHandler($event)">
+    <kendo-upload-messages select="Sélectionnez les fichiers" invalidFileExtension="Type de fichier invalide">
+    </kendo-upload-messages>
   </kendo-upload>
 </kendo-window>

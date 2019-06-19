@@ -20,9 +20,9 @@ export class DonneesService {
 
     constructor(private http: HttpClient) { }
 
-    public donnees() {
+    public donnees(type: string, status: string) {
         try {
-            return this.http.get<any[]>(this.apiUrl + 'TicketPrototypes');
+            return this.http.get<any[]>(this.apiUrl + 'TicketPrototypes/' + type + '/' + status);
 
         } catch (error) {
             console.log(error);
@@ -43,7 +43,6 @@ export class DonneesService {
     //             this.data.find(({ id }) => id === donnee.id),
     //             donnee
     //         );
-    //     }
     // }
 
     public save(value: any): Promise<any> {
