@@ -89,7 +89,7 @@ namespace Replex.Presentation.Controllers
         error = 0,
         errorMessage = "",
         source = "Import",
-        status = "To Create"
+        status = "Created"
       };
 
         var json = JsonConvert.SerializeObject(data);

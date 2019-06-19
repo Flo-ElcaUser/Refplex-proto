@@ -14,6 +14,8 @@ export class ImportsComponent implements OnInit {
   public gridData: GridDataResult;
   public data: any[] = [];
 
+  public listItems: Array<string> = ['TPG', 'NOVA', 'SNCF'];
+
   constructor(private webApiService: WebApiService) {
     this.loadProducts();
   }
@@ -83,7 +85,6 @@ export class ImportsComponent implements OnInit {
     this.webApiService.getImports()
       .subscribe(data => {
         this.data = data;
-        console.log("Test: ", this.data);
       });
   }
 
@@ -106,6 +107,5 @@ export class ImportsComponent implements OnInit {
   uploadRestrictions: FileRestrictions = {
     allowedExtensions: ['.csv', '.xls']
   };
-
 
 }

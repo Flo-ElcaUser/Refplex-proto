@@ -22,7 +22,7 @@ export class DonneesService {
 
     public donnees() {
         try {
-            return this.http.get<any[]>(this.apiUrl + 'TicketPrototypes');
+            return this.http.get<any[]>(this.apiUrl + 'TicketPrototypes/sncf/created');
 
         } catch (error) {
             console.log(error);
@@ -43,7 +43,6 @@ export class DonneesService {
     //             this.data.find(({ id }) => id === donnee.id),
     //             donnee
     //         );
-    //     }
     // }
 
     public save(value: any): Promise<any> {
