@@ -1,8 +1,11 @@
 <div class="dashboard--topContent">
   <kendo-buttongroup [selection]="'single'" class="dashboard--buttons">
-    <button kendoButton [toggleable]="true" (click)="goToPage('/')" [icon]="'search'">Analyse</button>
-    <button kendoButton [toggleable]="true" (click)="goToPage('/donnees')" [icon]="'list-bulleted'">Données</button>
-    <button kendoButton [toggleable]="true" (click)="goToPage('/imports')" [icon]="'login'">Imports</button>
+    <button kendoButton [toggleable]="true" [selected]="selectedAnalyse" (click)="goToPage('/')"
+      [icon]="'search'">Analyse</button>
+    <button kendoButton [toggleable]="true" [selected]="selectedDonnee" (click)="goToPage('/donnees')"
+      [icon]="'list-bulleted'">Données</button>
+    <button kendoButton [toggleable]="true" [selected]="selectedAImports" (click)="goToPage('/imports')"
+      [icon]="'login'">Imports</button>
   </kendo-buttongroup>
   <div class="dashboard--buttons">
     <!-- <button kendoButton (click)="onButtonUploadClick($event)" [icon]="'sort-desc'">Filters</button>
