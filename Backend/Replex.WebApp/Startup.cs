@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Replex.WebApp.Models;
 
 namespace Replex.Presentation
 {
@@ -21,6 +23,13 @@ namespace Replex.Presentation
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+      // Add configuration for DbContext
+      // Use connection string from appsettings.json file
+      services.AddDbContext<ReplexDbContext>(options =>
+      {
+        options.UseSqlServer(Configuration["AppSettings:ConnectionString"]);
+      });
 
       // In production, the Angular files will be served from this directory
       services.AddSpaStaticFiles(configuration =>
@@ -61,10 +70,9 @@ namespace Replex.Presentation
 
               spa.Options.SourcePath = "ClientApp";
 
-        if (env.IsDevelopment())
-        {
+       
           spa.UseAngularCliServer(npmScript: "start");
-        }
+        
       });
     }
   }

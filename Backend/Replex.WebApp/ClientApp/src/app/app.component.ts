@@ -9,7 +9,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 export class AppComponent implements OnInit {
   title = 'app';
 
-  private _opened: boolean = true;
+  public _opened: boolean = true;
 
   constructor(private ngxService: NgxUiLoaderService) { }
 

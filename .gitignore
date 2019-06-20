@@ -48,6 +48,44 @@ Thumbs.db
 
 Backend/Replex/Replex\.Presentation/ClientApp/node_modules/
 
-Backend/\.vs/Replex/v15/
 
-Backend/Replex\.Persistence/obj/Debug/netcoreapp2\.2/
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio 2017
+.vs/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio Code
+.vscode
+
+
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+obj
+
+Backend/Replex\.Domain/bin/
+
+Backend/Replex\.Persistence/bin/
+
+Backend/Replex\.Services/bin/

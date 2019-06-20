@@ -1,9 +1,0 @@
-C:\repo\replex_proto\Backend\Replex.Domain\bin\Debug\netcoreapp2.2\Replex.Domain.deps.json
-C:\repo\replex_proto\Backend\Replex.Domain\bin\Debug\netcoreapp2.2\Replex.Domain.dll
-C:\repo\replex_proto\Backend\Replex.Domain\bin\Debug\netcoreapp2.2\Replex.Domain.pdb
-C:\repo\replex_proto\Backend\Replex.Domain\obj\Debug\netcoreapp2.2\Replex.Domain.csprojAssemblyReference.cache
-C:\repo\replex_proto\Backend\Replex.Domain\obj\Debug\netcoreapp2.2\Replex.Domain.csproj.CoreCompileInputs.cache
-C:\repo\replex_proto\Backend\Replex.Domain\obj\Debug\netcoreapp2.2\Replex.Domain.AssemblyInfoInputs.cache
-C:\repo\replex_proto\Backend\Replex.Domain\obj\Debug\netcoreapp2.2\Replex.Domain.AssemblyInfo.cs
-C:\repo\replex_proto\Backend\Replex.Domain\obj\Debug\netcoreapp2.2\Replex.Domain.dll
-C:\repo\replex_proto\Backend\Replex.Domain\obj\Debug\netcoreapp2.2\Replex.Domain.pdb

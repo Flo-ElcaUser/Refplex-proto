@@ -10,8 +10,11 @@ export class ApiService {
     private test = new BehaviorSubject<string>('Test 123');
     cast = this.test.asObservable();
 
-    private seriesType = new BehaviorSubject<string>('');
-    casting = this.seriesType.asObservable();
+    private chartData = new BehaviorSubject<string>('');
+    private chartKey = new BehaviorSubject<string>('');
+
+    castData = this.chartData.asObservable();
+    CastKey = this.chartKey.asObservable();
 
     constructor() {
     }
@@ -20,8 +23,8 @@ export class ApiService {
         this.test.next(value);
     }
 
-    EditSeries(value: string) {
-        console.log('The test: ', value);
-        this.seriesType.next(value);
+    EditSeries(value: string, name: string) {
+        this.chartData.next(value);
+        this.chartKey.next(name);
     }
 }

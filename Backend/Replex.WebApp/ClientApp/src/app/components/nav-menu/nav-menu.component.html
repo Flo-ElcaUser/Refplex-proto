@@ -8,10 +8,10 @@
     </span>
   </div>
   <kendo-buttongroup [selection]="'single'" class="sideMenu__content">
-    <button *ngFor="let item of data" [(selected)]="item.selected" kendoButton [toggleable]="true"
-      (click)="GetData(item.id)" class="sideMenu__list">
+    <button *ngFor="let item of data" [(selected)]="item." kendoButton [toggleable]="true"
+      (click)="GetData(item.monthlyStatusId)" class="sideMenu__list">
       <div class="">
-        <div class="sideMenu__year">{{ item.year }}</div>
+        <div class="sideMenu__year">{{ item.monthYear }}</div>
         <div class="sideMenu__status">{{ item.status }}</div>
       </div>
       <span [ngClass]="getIcons(item.icon)"></span>

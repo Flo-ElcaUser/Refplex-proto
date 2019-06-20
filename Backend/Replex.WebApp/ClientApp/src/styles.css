@@ -39,3 +39,14 @@ button:focus {
 .bg--white {
   background-color: #fff !important;
 }
+
+.button__primary {
+  margin-top: 70px !important;
+}
+
+.btn__secondary button {
+  /* margin: 10px; */
+  border-radius: 50px;
+  width: 150px;
+  font-size: 11px;
+}
