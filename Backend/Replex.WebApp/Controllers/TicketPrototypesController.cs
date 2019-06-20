@@ -54,6 +54,21 @@ namespace Replex.WebApp.Controllers
       return CreatedAtAction("GetTicketPrototype", new { id = ticketPrototype }, ticketPrototype);
     }
 
+
+    // GET: api/TicketPrototypes/SNCF/ToCreate/AddedDate
+    [HttpGet("{distributor}/{status}/{addeddate}")]
+    public async Task<ActionResult<TicketPrototype>> GetTicketPrototype(string distributor, string status, int addeddate)
+    {
+      var ticketPrototype = await _context.TicketPrototype.Where(x => x.DistributorName == distributor && x.Status == status && x.AddedDate.Month == addeddate).ToListAsync();
+
+      if (ticketPrototype == null)
+      {
+        return NotFound();
+      }
+
+      return CreatedAtAction("GetTicketPrototype", new { id = ticketPrototype }, ticketPrototype);
+    }
+
     // PUT: api/TicketPrototypes/5
     [HttpPut("{id}")]
     public async Task<IActionResult> PutTicketPrototype(int id, TicketPrototype ticketPrototype)

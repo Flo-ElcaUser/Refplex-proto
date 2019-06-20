@@ -22,7 +22,7 @@ export class DonneesService {
 
     public donnees(type: string, status: string) {
         try {
-            return this.http.get<any[]>(this.apiUrl + 'TicketPrototypes/' + type + '/' + status);
+            return this.http.get<any[]>(this.apiUrl + 'TicketPrototypes/' + type + '/' + status + '/04');
 
         } catch (error) {
             console.log(error);
@@ -48,7 +48,8 @@ export class DonneesService {
     public save(value: any): Promise<any> {
         console.log(JSON.stringify(value));
         try {
-            return this.http.put<any[]>(this.apiUrl + 'TicketPrototypes/' + value.ticketProtoTypeId, JSON.stringify(value), httpOptions).toPromise();
+            return this.http.put<any[]>(this.apiUrl + 'TicketPrototypes/' + value.ticketProtoTypeId, JSON.stringify(value), httpOptions)
+                .toPromise();
 
         } catch (error) {
             console.log(error);
